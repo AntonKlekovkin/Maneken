@@ -219,6 +219,7 @@
 .\build\main.o: mbed-os/./platform/ATCmdParser.h
 .\build\main.o: mbed-os/./platform/CriticalSectionLock.h
 .\build\main.o: mbed-os/./platform/DeepSleepLock.h
+.\build\main.o: motors_threads.h
 .\build\main.o: my_pid.h
 .\build\main.o: my_motor.h
 .\build\main.o: my_potentiometer.h

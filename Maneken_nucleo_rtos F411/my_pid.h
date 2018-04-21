@@ -14,23 +14,6 @@ class My_pid
         float out;                                          // output of PID
         float min_out, max_out;                 // minimum and maximum values of output
 				float ratio, freq;
-               
-        //constructor of the class
-//      My_pid(float kp_set, float kd_set, float ki_set)
-//      {
-//          kp=kp_set;
-//          kd=kd_set;
-//          ki=ki_set;
-//          
-//          integral=0;
-//          err=0;
-//          old_err=0;
-//          
-//          setted_value=0;
-//          real_value=0;
-//          
-//          set_min_max(-50,50);
-//      }
         
         //constructor of the class
         My_pid()

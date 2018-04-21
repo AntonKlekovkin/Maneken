@@ -379,6 +379,8 @@
 ".\build\x509write_csr.o"
 ".\build\xtea.o"
 ".\build\main.o"
+".\build\motors_threads.o"
+".\build\uart.o"
 --scatter "mbed-os/targets/TARGET_STM/TARGET_STM32F4/TARGET_STM32F411xE/device/TOOLCHAIN_ARM_STD/stm32f411re.sct"
 --show_full_path --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

@@ -1,83 +1,46 @@
 #include "mbed.h"
+#include "motors_threads.h"
 
-#include "my_pid.h"
-#include "my_motor.h"
-#include "my_potentiometer.h"
-//#include "my_debugBuffer.h"
+extern My_motor motor0;	//A,B,PWM
+extern My_motor motor1;	//A,B,PWM
+extern My_motor motor2;	//A,B,PWM
+extern My_motor motor3;	//A,B,PWM
+extern My_motor motor4;	//A,B,PWM
+extern My_motor motor5;	//A,B,PWM
+extern My_motor motor6;	//A,B,PWM
+extern My_motor motor7;	//A,B,PWM
+
+extern My_potentiometer pot0; //Pin, pot_min, pot_max, delta
+extern My_potentiometer pot1;
+extern My_potentiometer pot2; 
+extern My_potentiometer pot3; //Pin, pot_min, pot_max, delta
+extern My_potentiometer pot4;
+extern My_potentiometer pot5; 
+extern My_potentiometer pot6; //Pin, pot_min, pot_max, delta
+extern My_potentiometer pot7;
+
 
 void UartRX(void);
 
 int count=0;
 
-Serial pc(SERIAL_TX, SERIAL_RX);
+extern Serial pc;
 
-Thread t1, t2;
+Thread t0, t1, t2, t3, t4, t5, t6, t7;
 
 DigitalOut led1(LED1);
 
-My_potentiometer pot1(PC_0, 0.28, 0.64, 0.02); //Pin, pot_min, pot_max, delta
-My_potentiometer pot2(PC_3, 0.74, 0.98, 0.01);
 
-// for motor
-My_motor motor1(PB_13, PB_14, PA_10);	//A,B,PWM
-My_motor motor2(D5, D6, D7);
 
 // threads
-uint8_t flag_thread1=0, flag_thread2=0;
+//uint8_t flag_thread1=0, flag_thread2=0;
+extern int8_t flag_thread;
 
 // for debug
 DigitalOut test1(PC_10);
 //My_DebugBuffer debugBuffer(300, 300);
 uint8_t flag_buf=0;
 
-void motor1_body()
-{
-	float speedMotor=1;
-	
-	motor1.Pid.SetAllCoeff(3.0, 2.0, 0);
-	
-	while (1) 
-	{ 
-		//motor1.SetSpeed(speedMotor);       
-		//motor1.Pid.settedValue = speedMotor;
-		motor1.Pid.SetSettedValue(140);
-		motor1.SetDirection(2);
-		while( !pot1.IsMinValue() );
-		motor1.Stop();
-		//debugBuffer.PrintBuffer1_2(&pc);
-		wait(0.5);
-		
-		//motor1.SetSpeed(speedMotor);
-		//motor1.Pid.settedValue = speedMotor;
-		motor1.Pid.SetSettedValue(140);
-		motor1.SetDirection(1);
-		while( !pot1.IsMaxValue() );
-		motor1.Stop();
-		wait(0.5);        
-	}
-}
-
-void motor2_body()
-{
-	float speedMotor=0.05;
-	
-    while(1)
-    {
-        //motor2.SetSpeed(0.3);
-				motor2.Pid.settedValue = speedMotor;
-        motor2.SetDirection(2);
-        while( !pot2.IsMinValue() );
-        motor2.Stop();
-        wait(0.5);
-        
-        //motor2.SetSpeed(0.3);
-				motor2.Pid.settedValue = speedMotor;
-        motor2.SetDirection(1);
-        while( !pot2.IsMaxValue() );
-        motor2.Stop();
-        wait(0.5);        
-    }
-}
 
 void time()
 {
@@ -90,127 +53,37 @@ void time()
     {
 			test1=1;
 			
+			pot0.Refresh();
       pot1.Refresh();
 			pot2.Refresh();
+			pot3.Refresh();
+			pot4.Refresh();
+			pot5.Refresh();
+			pot6.Refresh();
+			pot7.Refresh();
+			
 			i1=0;
 			
-			if(motor1.flagRotate==1)
-			{
-				//debugBuffer.WriteValue(pot1.omega);
-				//debugBuffer.WriteValue2(pot1.currentPosition);
-			}
+//			if(motor1.flagRotate==1)
+//			{
+//				//debugBuffer.WriteValue(pot1.omega);
+//				//debugBuffer.WriteValue2(pot1.currentPosition);
+//			}
 			
+			motor0.PidStep(pot0.omega/deltaT);
 			motor1.PidStep(pot1.omega/deltaT);
 			motor2.PidStep(pot2.omega/deltaT);
+			motor3.PidStep(pot3.omega/deltaT);
+			motor4.PidStep(pot4.omega/deltaT);
+			motor5.PidStep(pot5.omega/deltaT);
+			motor6.PidStep(pot6.omega/deltaT);
+			motor7.PidStep(pot7.omega/deltaT);
 			
 			test1=0;
     }
 
 }
 
-void UartRX()
-{
-    uint8_t b=pc.getc();
-		float test_speed=0.2;
-		float wait_time=0.1;
-    
-    if(b==1)
-    {
-        motor1.SetSpeed(test_speed);
-        motor1.SetDirection(1);
-        wait(wait_time);
-        motor1.Stop();        
-    }
-    else if(b==2)
-    {
-        motor1.SetSpeed(test_speed);
-        motor1.SetDirection(2);
-        wait(wait_time);
-        motor1.Stop();        
-    }
-    else if(b==3)
-    {
-        motor2.SetSpeed(test_speed);
-        motor2.SetDirection(1);
-        wait(wait_time);
-        motor2.Stop();        
-    }
-    else if(b==4)
-    {
-        motor2.SetSpeed(test_speed);
-        motor2.SetDirection(2);
-        wait(wait_time);
-        motor2.Stop();        
-    }
-    
-    else if(b==5)
-    {
-         pc.printf("pot1_min=%f, pot1_max=%f, pot2_min=%f, pot2_max=%f\r\n", pot1.min, pot1.max, pot2.min, pot2.max);
-    }
-    
-    else if(b==6)
-    {
-        pot1.min=pot1.GetPosition();
-				pc.printf("pot1_min=%f\r\n", pot1.min);
-    }
-    else if(b==7)
-    {
-        pot1.max=pot1.GetPosition();
-				pc.printf("pot1_max=%f\r\n", pot1.max);
-    }
-    else if(b==8)
-    {
-        pot2.min=pot2.GetPosition();
-				pc.printf("pot2_min=%f\r\n", pot2.min);
-    }
-    else if(b==9)
-    {
-        pot2.max=pot2.GetPosition();
-				pc.printf("pot2_max=%f\r\n", pot2.max);
-    }
-    
-    else if(b==10)
-    {
-         flag_thread1=1;
-    }
-    else if(b==11)
-    {
-         flag_thread2=1;
-    }
-		else if(b==12)
-    {
-        pc.printf("pot1=%f\r\n", pot1.GetPosition());
-    }
-		else if(b==13)
-    {
-        pc.printf("pot2=%f\r\n", pot2.GetPosition());
-    }
-		else if(b==14)
-    {
-         flag_thread1=2;
-    }
-    else if(b==15)
-    {
-         flag_thread2=2;
-    }
-		else if(b==16)
-    {
-         pc.printf("IsMax1=%s\r\n",pot1.IsMaxValue()?"true":"false");
-    }
-		else if(b==17)
-    {
-         pc.printf("IsMax2=%s\r\n",pot2.IsMaxValue()?"true":"false");
-    }
-		else if(b==18)
-    {
-         //debugBuffer.PrintBuffer(&pc);
-    }
-		else if(b==19)
-    {
-         flag_buf=1;
-    }
-    
-}
 
 
 
@@ -219,10 +92,16 @@ int main()
     pc.baud(256000);
     pc.attach(&UartRX);
     pc.printf("\n\n*** RTOS maneken start ***\n");
-
+		
+		motor0.Stop();
     motor1.Stop();
     motor2.Stop();
-    
+    motor3.Stop();
+    motor4.Stop();
+		motor5.Stop();
+    motor6.Stop();
+		motor7.Stop();
+
   
 		//t1.start(motor1_body);
 	Ticker tim;	
@@ -230,34 +109,93 @@ int main()
 	
     while (true) 
     {
-				if(flag_thread1==1)
+				if(flag_thread==0)
+				{
+					t0.start(motor0_body);
+					flag_thread=100;
+				}
+				else if(flag_thread==1)
 				{
 					t1.start(motor1_body);
-					flag_thread1=0;
+					flag_thread=100;
 				}
-				else if(flag_thread1==2)
-				{
-					t1.terminate();
-					flag_thread1=0;
-					motor1.Stop();
-				}
-				
-				if(flag_thread2==1)
+				else if(flag_thread==2)
 				{
 					t2.start(motor2_body);
-					flag_thread2=0;
+					flag_thread=100;
 				}
-				else if(flag_thread2==2)
+				else if(flag_thread==3)
+				{
+					t3.start(motor3_body);
+					flag_thread=100;
+				}
+				else if(flag_thread==4)
+				{
+					t4.start(motor4_body);
+					flag_thread=100;
+				}
+				else if(flag_thread==5)
+				{
+					t5.start(motor5_body);
+					flag_thread=100;
+				}
+				else if(flag_thread==6)
+				{
+					t6.start(motor6_body);
+					flag_thread=100;
+				}
+				else if(flag_thread==7)
+				{
+					t7.start(motor7_body);
+					flag_thread=100;
+				}
+				else if(flag_thread==10)
+				{
+					t0.terminate();
+					flag_thread=100;
+					motor0.Stop();
+				}
+				else if(flag_thread==11)
+				{
+					t1.terminate();
+					flag_thread=100;
+					motor1.Stop();
+				}
+				else if(flag_thread==12)
 				{
 					t2.terminate();
-					flag_thread2=0;
+					flag_thread=100;
 					motor2.Stop();
 				}
-				
-				if(flag_buf==1)
+				else if(flag_thread==13)
 				{
-					//debugBuffer.DeleteBuf();
-					flag_buf=0;
+					t3.terminate();
+					flag_thread=100;
+					motor3.Stop();
+				}
+				else if(flag_thread==14)
+				{
+					t4.terminate();
+					flag_thread=100;
+					motor4.Stop();
+				}
+				else if(flag_thread==15)
+				{
+					t5.terminate();
+					flag_thread=100;
+					motor5.Stop();
+				}
+				else if(flag_thread==16)
+				{
+					t6.terminate();
+					flag_thread=100;
+					motor6.Stop();
+				}
+				else if(flag_thread==17)
+				{
+					t7.terminate();
+					flag_thread=100;
+					motor7.Stop();
 				}
 				
         led1 = !led1;
