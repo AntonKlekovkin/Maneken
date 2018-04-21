@@ -14,7 +14,7 @@ Thread t1, t2;
 
 DigitalOut led1(LED1);
 
-My_potentiometer pot1(PC_0, 0.28, 0.65, 0.02); //Pin, pot_min, pot_max, delta
+My_potentiometer pot1(PC_0, 0.32, 0.66, 0.06); //Pin, pot_min, pot_max, delta
 My_potentiometer pot2(PC_3, 0.74, 0.98, 0.01);
 
 // for motor
@@ -27,20 +27,27 @@ uint8_t flag_thread1=0, flag_thread2=0;
 
 void motor1_body()
 {
-	float speedMotor=10;
+	float speedMotor=0.01;
+	
     while (1) 
     { 
-        motor1.SetSpeed(speedMotor);       
-        motor1.SetDirection(2);
-        while( !pot1.IsMinValue() );
-        motor1.Stop();
-        wait(0.5);
-        
-        motor1.SetSpeed(speedMotor);
-        motor1.SetDirection(1);
-        while( !pot1.IsMaxValue() );
-        motor1.Stop();
-        wait(0.5);        
+			//motor1.SetSpeed(speedMotor);       
+			motor1.Pid.settedValue = speedMotor;
+			motor1.SetDirection(1);
+			while( !pot1.IsMinValue() );
+			motor1.Pid.settedValue = 0;
+			wait(0.1);
+			motor1.Stop();
+			wait(0.5);
+			
+			//motor1.SetSpeed(speedMotor);
+			motor1.Pid.settedValue = speedMotor;  
+			motor1.SetDirection(2);
+			while( !pot1.IsMaxValue() );
+			motor1.Pid.settedValue = 0;
+			wait(0.1);
+			motor1.Stop();
+			wait(0.5);        
     }
 }
 

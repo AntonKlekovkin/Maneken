@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\BUILD\mbed-os.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\BUILD\mbed-os.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed Mar 28 18:15:34 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Fri Mar 30 12:18:22 2018
 <BR><P>
 <H3>Maximum Stack Usage =        704 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -11,8 +11,8 @@ pre_main &rArr; main &rArr; $Super$$main &rArr; My_motor::Stop() &rArr; My_motor
 <P>
 <H3>
 Mutually Recursive functions
-</H3> <LI><a href="#[1ca]">core_util_critical_section_enter</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1e2]">mbed_assert_internal</a><BR>
- <LI><a href="#[1ce]">core_util_critical_section_exit</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1e2]">mbed_assert_internal</a><BR>
+</H3> <LI><a href="#[1c9]">core_util_critical_section_enter</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1e2]">mbed_assert_internal</a><BR>
+ <LI><a href="#[1cd]">core_util_critical_section_exit</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1e2]">mbed_assert_internal</a><BR>
  <LI><a href="#[248]">pinmap_pinout</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1b7]">error</a><BR>
  <LI><a href="#[257]">pin_function</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1e2]">mbed_assert_internal</a><BR>
  <LI><a href="#[1b6]">Set_GPIO_Clock</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1b7]">error</a><BR>
@@ -20,8 +20,8 @@ Mutually Recursive functions
  <LI><a href="#[1be]">serial_init</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1e2]">mbed_assert_internal</a><BR>
  <LI><a href="#[2e0]">pinmap_merge</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1b7]">error</a><BR>
  <LI><a href="#[1e2]">mbed_assert_internal</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[250]">mbed_die</a><BR>
- <LI><a href="#[1cd]">sleep_manager_unlock_deep_sleep</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1b7]">error</a><BR>
- <LI><a href="#[1cb]">sleep_manager_lock_deep_sleep</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1b7]">error</a><BR>
+ <LI><a href="#[1cc]">sleep_manager_unlock_deep_sleep</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1b7]">error</a><BR>
+ <LI><a href="#[1ca]">sleep_manager_lock_deep_sleep</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1b7]">error</a><BR>
  <LI><a href="#[237]">osRtxErrorNotify</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1b7]">error</a><BR>
  <LI><a href="#[11]">NMI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[11]">NMI_Handler</a><BR>
  <LI><a href="#[12]">HardFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[12]">HardFault_Handler</a><BR>
@@ -1022,7 +1022,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perthread_libspace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_open_errors(int, unsigned)
+<BR>[Called By]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_open_errors(int, unsigned)
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_write
 <LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_seek
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_read
@@ -1068,8 +1068,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_release
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_acquire
 </UL>
-<BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
+<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
+<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
 </UL>
 
 <P><STRONG><a name="[11b]"></a>free</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(h1_free_mt.o)(.text))
@@ -1131,23 +1131,23 @@ Global Symbols
 <P><STRONG><a name="[123]"></a>_printf_pre_padding</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(_printf_pad.o)(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _printf_pre_padding
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_str
+<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_str
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_wctomb
 <LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
 </UL>
 
 <P><STRONG><a name="[124]"></a>_printf_post_padding</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(_printf_pad.o)(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _printf_post_padding
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_str
+<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_str
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_wctomb
 <LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
 </UL>
 
 <P><STRONG><a name="[122]"></a>_printf_str</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(_printf_str.o)(.text))
@@ -1270,8 +1270,8 @@ Global Symbols
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fflush
 <LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fseek
 </UL>
-<BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_flushlinebuffered
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fflush
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fflush
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_flushlinebuffered
 </UL>
 
 <P><STRONG><a name="[137]"></a>fflush</STRONG> (Thumb, 60 bytes, Stack size 24 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(fflush_locked.o)(.text))
@@ -1284,7 +1284,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 <LI><a href="#[1d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Stream::printf(const char*, ...)
-<LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Stream::getc()
+<LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Stream::getc()
 </UL>
 
 <P><STRONG><a name="[13a]"></a>freopen</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(fopen_locked.o)(.text))
@@ -1392,8 +1392,8 @@ Global Symbols
 
 <P><STRONG><a name="[23f]"></a>strcmp</STRONG> (Thumb, 128 bytes, Stack size 0 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(strcmpv7m.o)(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_open
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
 </UL>
 
 <P><STRONG><a name="[365]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(heapauxi.o)(.text), UNUSED)
@@ -1427,10 +1427,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_terminate_alloc
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
+<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;free
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_init_alloc
+<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_terminate_alloc
 </UL>
 
 <P><STRONG><a name="[104]"></a>__rt_locale</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(rt_locale_twolibspace.o)(.text))
@@ -1466,10 +1466,10 @@ Global Symbols
 <P><STRONG><a name="[102]"></a>_init_alloc</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(init_alloc.o)(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = _init_alloc &rArr; __Heap_Initialize &rArr; _mutex_initialize &rArr; malloc &rArr; _malloc_internal &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; _free_internal &rArr; _mutex_release &rArr; os_kernel_is_active &rArr; osKernelGetState &rArr; svcRtxKernelGetState
 </UL>
-<BR>[Calls]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Initialize
+<BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Initialize
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
+<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
 </UL>
 <BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_heap_2
 </UL>
@@ -1515,12 +1515,12 @@ Global Symbols
 <P><STRONG><a name="[14c]"></a>_printf_fp_dec_real</STRONG> (Thumb, 620 bytes, Stack size 104 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(_printf_fp_dec.o)(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = _printf_fp_dec_real &rArr; _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
+<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec
 </UL>
@@ -1531,8 +1531,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__printf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
-<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vsnprintf
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vsnprintf
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
 </UL>
 
 <P><STRONG><a name="[120]"></a>_sputc</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(_sputc.o)(.text))
@@ -1570,9 +1570,9 @@ Global Symbols
 <P><STRONG><a name="[150]"></a>_printf_wctomb</STRONG> (Thumb, 182 bytes, Stack size 56 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(_printf_wctomb.o)(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = _printf_wctomb &rArr; _wcrtomb &rArr; __rt_ctype_table &rArr; __rt_locale
 </UL>
-<BR>[Calls]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_wcrtomb
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_wcrtomb
 </UL>
 <BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_lcs_common
 </UL>
@@ -1580,8 +1580,8 @@ Global Symbols
 <P><STRONG><a name="[f0]"></a>_printf_longlong_dec</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(_printf_longlong_dec.o)(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = _printf_longlong_dec &rArr; _printf_int_common &rArr; _printf_post_padding
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ll_udiv10
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
+<BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ll_udiv10
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_llu
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_lld
@@ -1627,13 +1627,13 @@ Global Symbols
 
 <P><STRONG><a name="[156]"></a>__filbuf</STRONG> (Thumb, 476 bytes, Stack size 32 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(filbuf.o)(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_seek
-<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_flushlinebuffered
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_deferredlazyseek
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fflush
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_seterr
 <LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_seteof
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_readbuf
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_flushlinebuffered
 </UL>
 
 <P><STRONG><a name="[251]"></a>__filbuf_byte</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(filbuf.o)(.text))
@@ -1666,8 +1666,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_istty
 <LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_flen
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ftell_internal
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_seterr
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ftell_internal
 </UL>
 <BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_freopen_locked
 <LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_do_fflush
@@ -1729,10 +1729,10 @@ Global Symbols
 <LI>Call Chain = _initio &rArr; freopen &rArr; _freopen_locked &rArr; _sys_open &rArr; mbed::FilePath::FilePath(const char*) &rArr; mbed::FileBase::lookup(const char*, unsigned) &rArr; SingletonPtr&lang;rtos::Mutex&rang;::operator -&rang;() &rArr; SingletonPtr&lang;rtos::Mutex&rang;::get() &rArr; rtos::Mutex::Mutex() &rArr; rtos::Mutex::constructor(const char*) &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_initialize
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTRED
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setvbuf
 <LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;freopen
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTRED
 </UL>
 <BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_stdio_2
 </UL>
@@ -1782,10 +1782,10 @@ Global Symbols
 <P><STRONG><a name="[166]"></a>_printf_fp_hex_real</STRONG> (Thumb, 756 bytes, Stack size 72 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(_printf_fp_hex.o)(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = _printf_fp_hex_real &rArr; _printf_fp_infnan &rArr; _printf_post_padding
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex
 </UL>
@@ -1796,8 +1796,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
 </UL>
-<BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
-<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+<BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
 </UL>
 
 <P><STRONG><a name="[11d]"></a>_printf_char_file</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(_printf_char_file_locked.o)(.text))
@@ -1875,9 +1875,9 @@ Global Symbols
 <P><STRONG><a name="[165]"></a>__sig_exit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(defsig_exit.o)(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
+<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGPVFN
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
 <LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTRED
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGPVFN
 </UL>
 
 <P><STRONG><a name="[161]"></a>__rt_SIGRTRED</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(defsig_rtred_outer.o)(.text))
@@ -1914,8 +1914,8 @@ Global Symbols
 <P><STRONG><a name="[370]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(indicate_semi.o)(.text), UNUSED)
 
 <P><STRONG><a name="[16c]"></a>_terminate_alloc</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(term_alloc.o)(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Finalize
-<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
+<BR><BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
+<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Finalize
 </UL>
 
 <P><STRONG><a name="[16b]"></a>__default_signal_display</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(defsig_general.o)(.text))
@@ -1983,8 +1983,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_e2e
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__btod_div_common
 </UL>
-<BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
 </UL>
 
 <P><STRONG><a name="[14a]"></a>_btod_emul</STRONG> (Thumb, 42 bytes, Stack size 28 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(btod.o)(CL$$btod_emul))
@@ -1993,8 +1993,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__btod_mult_common
 <LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_e2e
 </UL>
-<BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
 </UL>
 
 <P><STRONG><a name="[173]"></a>__btod_mult_common</STRONG> (Thumb, 580 bytes, Stack size 16 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(btod.o)(CL$$btod_mult_common))
@@ -2184,7 +2184,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[28c]"></a>EvrRtxMutexAcquire</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, .\build\rtx_evr.o(i.EvrRtxMutexAcquire))
-<BR><BR>[Called By]<UL><LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
+<BR><BR>[Called By]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
 </UL>
 
 <P><STRONG><a name="[2f7]"></a>EvrRtxMutexAcquirePending</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, .\build\rtx_evr.o(i.EvrRtxMutexAcquirePending))
@@ -2214,9 +2214,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[290]"></a>EvrRtxMutexError</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, .\build\rtx_evr.o(i.EvrRtxMutexError))
-<BR><BR>[Called By]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
-<LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
-<LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
+<BR><BR>[Called By]<UL><LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
+<LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
+<LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
 <LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexDelete
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;svcRtxMutexRelease
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;svcRtxMutexNew
@@ -2233,7 +2233,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[293]"></a>EvrRtxMutexRelease</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, .\build\rtx_evr.o(i.EvrRtxMutexRelease))
-<BR><BR>[Called By]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
+<BR><BR>[Called By]<UL><LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
 </UL>
 
 <P><STRONG><a name="[2aa]"></a>EvrRtxMutexReleased</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, .\build\rtx_evr.o(i.EvrRtxMutexReleased))
@@ -2746,16 +2746,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_ConfigChannel
 </UL>
 
-<P><STRONG><a name="[85]"></a>motor1_body()</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, .\build\main.o(i._Z11motor1_bodyv))
+<P><STRONG><a name="[85]"></a>motor1_body()</STRONG> (Thumb, 128 bytes, Stack size 8 bytes, .\build\main.o(i._Z11motor1_bodyv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 584 + Unknown Stack Size
 <LI>Call Chain = motor1_body() &rArr; My_motor::Stop() &rArr; My_motor::SetSpeed(float) &rArr; mbed::PwmOut::operator =(float) &rArr; pwmout_write &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait
-<LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetSpeed(float)
+<BR>[Calls]<UL><LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait
 <LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::Stop()
-<LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetDirection(int)
-<LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::IsMinValue()
-<LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::IsMaxValue()
+<LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetDirection(int)
+<LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::IsMinValue()
+<LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::IsMaxValue()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
@@ -2763,11 +2762,11 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 584 + Unknown Stack Size
 <LI>Call Chain = motor2_body() &rArr; My_motor::Stop() &rArr; My_motor::SetSpeed(float) &rArr; mbed::PwmOut::operator =(float) &rArr; pwmout_write &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait
+<BR>[Calls]<UL><LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait
 <LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::Stop()
-<LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetDirection(int)
-<LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::IsMinValue()
-<LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::IsMaxValue()
+<LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetDirection(int)
+<LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::IsMinValue()
+<LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::IsMaxValue()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
@@ -2775,9 +2774,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 616 + Unknown Stack Size
 <LI>Call Chain = time() &rArr; My_motor::PidStep(float) &rArr; My_motor::SetSpeed(float) &rArr; mbed::PwmOut::operator =(float) &rArr; pwmout_write &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
-<LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::operator =(int)
-<LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::Refresh()
+<BR>[Calls]<UL><LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
+<LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::operator =(int)
+<LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::Refresh()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
@@ -2785,25 +2784,25 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 656 + Unknown Stack Size
 <LI>Call Chain = UartRX() &rArr; My_motor::Stop() &rArr; My_motor::SetSpeed(float) &rArr; mbed::PwmOut::operator =(float) &rArr; pwmout_write &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait
+<BR>[Calls]<UL><LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait
 <LI><a href="#[1d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Stream::printf(const char*, ...)
-<LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Stream::getc()
-<LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetSpeed(float)
+<LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Stream::getc()
+<LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetSpeed(float)
 <LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::Stop()
-<LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetDirection(int)
+<LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetDirection(int)
 <LI><a href="#[1d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::GetPosition()
-<LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::IsMaxValue()
+<LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::IsMaxValue()
 <LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[1c5]"></a>My_potentiometer::IsMaxValue()</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, .\build\main.o(i._ZN16My_potentiometer10IsMaxValueEv))
+<P><STRONG><a name="[1c4]"></a>My_potentiometer::IsMaxValue()</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, .\build\main.o(i._ZN16My_potentiometer10IsMaxValueEv))
 <BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartRX()
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor2_body()
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor1_body()
 </UL>
 
-<P><STRONG><a name="[1c2]"></a>My_potentiometer::IsMinValue()</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, .\build\main.o(i._ZN16My_potentiometer10IsMinValueEv))
+<P><STRONG><a name="[1c1]"></a>My_potentiometer::IsMinValue()</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, .\build\main.o(i._ZN16My_potentiometer10IsMinValueEv))
 <BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor2_body()
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor1_body()
 </UL>
@@ -2814,10 +2813,10 @@ Global Symbols
 
 <P><STRONG><a name="[1d8]"></a>My_potentiometer::Speed()</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, .\build\main.o(i._ZN16My_potentiometer5SpeedEv))
 <BR><BR>[Called By]<UL><LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::My_potentiometer(PinName, float, float, float)
-<LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::Refresh()
+<LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::Refresh()
 </UL>
 
-<P><STRONG><a name="[1d1]"></a>My_potentiometer::Refresh()</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, .\build\main.o(i._ZN16My_potentiometer7RefreshEv))
+<P><STRONG><a name="[1d0]"></a>My_potentiometer::Refresh()</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, .\build\main.o(i._ZN16My_potentiometer7RefreshEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = My_potentiometer::Refresh() &rArr; mbed::AnalogIn::read() &rArr; analogin_read &rArr; adc_read &rArr; HAL_ADC_PollForConversion
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::AnalogIn::read()
@@ -2859,11 +2858,11 @@ Global Symbols
 
 <P><STRONG><a name="[373]"></a>mbed::DigitalOut::DigitalOut__sub_object(PinName)</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, .\build\busout.o(i._ZN4mbed10DigitalOutC1E7PinName), UNUSED)
 
-<P><STRONG><a name="[1d0]"></a>mbed::DigitalOut::operator =(int)</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, .\build\main.o(i._ZN4mbed10DigitalOutaSEi))
+<P><STRONG><a name="[1cf]"></a>mbed::DigitalOut::operator =(int)</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, .\build\main.o(i._ZN4mbed10DigitalOutaSEi))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = mbed::DigitalOut::operator =(int)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
-<LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetDirection(int)
+<LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetDirection(int)
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;time()
 </UL>
 
@@ -2906,7 +2905,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 360 + Unknown Stack Size
 <LI>Call Chain = mbed::SerialBase::interrupt_handler_asynch() &rArr; mbed::Callback&lang;void(int)&rang;::call(int) const &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
+<BR>[Calls]<UL><LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
 <LI><a href="#[1e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Callback&lang;void(int)&rang;::operator bool() const
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Callback&lang;void(int)&rang;::call(int) const
 <LI><a href="#[1e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_irq_handler_asynch
@@ -2919,13 +2918,13 @@ Global Symbols
 <P><STRONG><a name="[1e6]"></a>mbed::SerialBase::attach(mbed::Callback&lang;void()&rang;, mbed::SerialBase::IrqType)</STRONG> (Thumb, 156 bytes, Stack size 40 bytes, .\build\serialbase.o(i._ZN4mbed10SerialBase6attachENS_8CallbackIFvvEEENS0_7IrqTypeE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = mbed::SerialBase::attach(mbed::Callback&lang;void()&rang;, mbed::SerialBase::IrqType) &rArr; serial_irq_set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Callback&lang;void()&rang;::operator bool() const
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Callback&lang;void()&rang;::~Callback()
 <LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Callback&lang;void()&rang;::Callback(void(*)())
-<LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
-<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
+<LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
+<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_irq_set
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Callback&lang;void()&rang;::operator =(const mbed::Callback&lang;void()&rang;&)
 </UL>
@@ -3057,13 +3056,13 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 552 + Unknown Stack Size
 <LI>Call Chain = mbed::PwmOut::operator =(float) &rArr; pwmout_write &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
-<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
 <LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[22d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::My_motor(PinName, PinName, PinName)
-<LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetSpeed(float)
+<LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetSpeed(float)
 </UL>
 
 <P><STRONG><a name="[b8]"></a>mbed::Serial::lock()</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, .\build\serial.o(i._ZN4mbed6Serial4lockEv))
@@ -3128,7 +3127,7 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[379]"></a>mbed::Serial::~Serial__sub_object()</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, .\build\serial.o(i._ZN4mbed6SerialD1Ev), UNUSED)
 
-<P><STRONG><a name="[1d3]"></a>mbed::Stream::getc()</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, .\build\stream.o(i._ZN4mbed6Stream4getcEv))
+<P><STRONG><a name="[1d2]"></a>mbed::Stream::getc()</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, .\build\stream.o(i._ZN4mbed6Stream4getcEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 320 + Unknown Stack Size
 <LI>Call Chain = mbed::Stream::getc() &rArr; fflush &rArr; _do_fflush &rArr; _fflush &rArr; _writebuf &rArr; _sys_write &rArr; init_serial() &rArr; serial_baud &rArr; debug &rArr; vfprintf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -3213,8 +3212,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mbed::Ticker::setup(unsigned long long) &rArr; ticker_read_us &rArr; initialize &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read_us
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::TimerEvent::remove()
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::TimerEvent::insert_absolute(unsigned long long)
@@ -3236,10 +3235,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 448 + Unknown Stack Size
 <LI>Call Chain = mbed::Ticker::attach_us(mbed::Callback&lang;void()&rang;, unsigned long long) &rArr; mbed::Ticker::setup(unsigned long long) &rArr; ticker_read_us &rArr; initialize &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Callback&lang;void()&rang;::~Callback()
-<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
+<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Ticker::setup(unsigned long long)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
@@ -3271,7 +3270,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;analogin_read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::My_potentiometer(PinName, float, float, float)
-<LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::Refresh()
+<LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_potentiometer::Refresh()
 </UL>
 
 <P><STRONG><a name="[cb]"></a>mbed::AnalogIn::unlock()</STRONG> (Thumb, 18 bytes, Stack size 16 bytes, .\build\main.o(i._ZN4mbed8AnalogIn6unlockEv))
@@ -3404,7 +3403,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fgetc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Stream::getc()
+<BR>[Called By]<UL><LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Stream::getc()
 </UL>
 
 <P><STRONG><a name="[216]"></a>rtos::Mutex::constructor(const char*)</STRONG> (Thumb, 74 bytes, Stack size 32 bytes, .\build\mutex.o(i._ZN4rtos5Mutex11constructorEPKc))
@@ -3421,7 +3420,7 @@ Global Symbols
 <P><STRONG><a name="[1fd]"></a>rtos::Mutex::lock(unsigned)</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, .\build\mutex.o(i._ZN4rtos5Mutex4lockEj))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = rtos::Mutex::lock(unsigned) &rArr; osMutexAcquire
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
+<BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FileBase::~FileBase()
 <LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::remove_filehandle(mbed::FileHandle*)
@@ -3438,7 +3437,7 @@ Global Symbols
 <P><STRONG><a name="[1fe]"></a>rtos::Mutex::unlock()</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, .\build\mutex.o(i._ZN4rtos5Mutex6unlockEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = rtos::Mutex::unlock() &rArr; osMutexRelease
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
+<BR>[Calls]<UL><LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FileBase::~FileBase()
 <LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::remove_filehandle(mbed::FileHandle*)
@@ -3601,13 +3600,13 @@ Global Symbols
 <P><STRONG><a name="[384]"></a>rtos::Semaphore::~Semaphore__sub_object()</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, .\build\semaphore.o(i._ZN4rtos9SemaphoreD1Ev), UNUSED)
 
 <P><STRONG><a name="[22b]"></a>My_pid::CalculatePid(float)</STRONG> (Thumb, 170 bytes, Stack size 0 bytes, .\build\main.o(i._ZN6My_pid12CalculatePidEf))
-<BR><BR>[Called By]<UL><LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
+<BR><BR>[Called By]<UL><LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
 </UL>
 
-<P><STRONG><a name="[1c1]"></a>My_motor::SetDirection(int)</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, .\build\main.o(i._ZN8My_motor12SetDirectionEi))
+<P><STRONG><a name="[1c0]"></a>My_motor::SetDirection(int)</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, .\build\main.o(i._ZN8My_motor12SetDirectionEi))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = My_motor::SetDirection(int) &rArr; mbed::DigitalOut::operator =(int)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::operator =(int)
+<BR>[Calls]<UL><LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::operator =(int)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::Stop()
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartRX()
@@ -3619,8 +3618,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 576 + Unknown Stack Size
 <LI>Call Chain = My_motor::Stop() &rArr; My_motor::SetSpeed(float) &rArr; mbed::PwmOut::operator =(float) &rArr; pwmout_write &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetSpeed(float)
-<LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetDirection(int)
+<BR>[Calls]<UL><LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetSpeed(float)
+<LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetDirection(int)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartRX()
@@ -3628,29 +3627,28 @@ Global Symbols
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor1_body()
 </UL>
 
-<P><STRONG><a name="[1d2]"></a>My_motor::PidStep(float)</STRONG> (Thumb, 92 bytes, Stack size 32 bytes, .\build\main.o(i._ZN8My_motor7PidStepEf))
+<P><STRONG><a name="[1d1]"></a>My_motor::PidStep(float)</STRONG> (Thumb, 132 bytes, Stack size 32 bytes, .\build\main.o(i._ZN8My_motor7PidStepEf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 600 + Unknown Stack Size
 <LI>Call Chain = My_motor::PidStep(float) &rArr; My_motor::SetSpeed(float) &rArr; mbed::PwmOut::operator =(float) &rArr; pwmout_write &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[22c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_read
-<LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetSpeed(float)
+<LI><a href="#[1d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::SetSpeed(float)
 <LI><a href="#[22b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_pid::CalculatePid(float)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;time()
 </UL>
 
-<P><STRONG><a name="[1c0]"></a>My_motor::SetSpeed(float)</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, .\build\main.o(i._ZN8My_motor8SetSpeedEf))
+<P><STRONG><a name="[1d3]"></a>My_motor::SetSpeed(float)</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, .\build\main.o(i._ZN8My_motor8SetSpeedEf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 568 + Unknown Stack Size
 <LI>Call Chain = My_motor::SetSpeed(float) &rArr; mbed::PwmOut::operator =(float) &rArr; pwmout_write &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::PwmOut::operator =(float)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
+<BR>[Called By]<UL><LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
 <LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::Stop()
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartRX()
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor1_body()
 </UL>
 
 <P><STRONG><a name="[22d]"></a>My_motor::My_motor(PinName, PinName, PinName)</STRONG> (Thumb, 194 bytes, Stack size 24 bytes, .\build\main.o(i._ZN8My_motorC1E7PinNameS0_S0_))
@@ -3658,8 +3656,8 @@ Global Symbols
 <LI>Call Chain = My_motor::My_motor(PinName, PinName, PinName) &rArr; pwmout_init &rArr; pwmout_period_us &rArr; pwmout_write &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::DigitalOut(PinName)
-<LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[22e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_init
 <LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::PwmOut::operator =(float)
 </UL>
@@ -3671,9 +3669,9 @@ Global Symbols
 <P><STRONG><a name="[82]"></a>My_motor::~My_motor()</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, .\build\main.o(i._ZN8My_motorD1Ev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = My_motor::~My_motor() &rArr; sleep_manager_unlock_deep_sleep &rArr;  error (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
-<LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.__sti___8_main_cpp_count)
 </UL>
@@ -3729,8 +3727,8 @@ Global Symbols
 <P><STRONG><a name="[14d]"></a>__ARM_fpclassify</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\m_wm.l(fpclassify.o)(i.__ARM_fpclassify))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_fpclassify
 </UL>
-<BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
-<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+<BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
 </UL>
 
 <P><STRONG><a name="[235]"></a>__aeabi_atexit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, .\build\mbed_retarget.o(i.__aeabi_atexit))
@@ -3766,8 +3764,8 @@ Global Symbols
 <LI><a href="#[231]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_cpy_nvic
 <LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_sdk_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
 </UL>
 
 <P><STRONG><a name="[114]"></a>__user_perthread_libspace</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, .\build\rtx_lib.o(i.__user_perthread_libspace))
@@ -3801,12 +3799,10 @@ Global Symbols
 <P><STRONG><a name="[d7]"></a>_mutex_acquire</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, .\build\rtx_lib.o(i._mutex_acquire))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = _mutex_acquire &rArr; os_kernel_is_active &rArr; osKernelGetState &rArr; svcRtxKernelGetState
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
+<BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
 <LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;os_kernel_is_active
 </UL>
-<BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_flushlinebuffered
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
-<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_free_internal
+<BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_free_internal
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_malloc_internal
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_terminateio
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setvbuf
@@ -3817,13 +3813,15 @@ Global Symbols
 <LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_do_fflush
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fclose
 <LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fgetc
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_flushlinebuffered
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
 </UL>
 
 <P><STRONG><a name="[13c]"></a>_mutex_initialize</STRONG> (Thumb, 166 bytes, Stack size 32 bytes, .\build\mbed_boot.o(i._mutex_initialize))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = _mutex_initialize &rArr; malloc &rArr; _malloc_internal &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; _free_internal &rArr; _mutex_release &rArr; os_kernel_is_active &rArr; osKernelGetState &rArr; svcRtxKernelGetState
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
 <LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxErrorNotify
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
@@ -3836,12 +3834,10 @@ Global Symbols
 <P><STRONG><a name="[d8]"></a>_mutex_release</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, .\build\rtx_lib.o(i._mutex_release))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = _mutex_release &rArr; os_kernel_is_active &rArr; osKernelGetState &rArr; svcRtxKernelGetState
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
+<BR>[Calls]<UL><LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
 <LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;os_kernel_is_active
 </UL>
-<BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_flushlinebuffered
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
-<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_free_internal
+<BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_free_internal
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_malloc_internal
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_terminateio
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setvbuf
@@ -3852,6 +3848,8 @@ Global Symbols
 <LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_do_fflush
 <LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fclose
 <LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fgetc
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_flushlinebuffered
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
 </UL>
 
 <P><STRONG><a name="[233]"></a>_platform_post_stackheap_init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, .\build\rtx_lib.o(i._platform_post_stackheap_init))
@@ -3901,7 +3899,7 @@ Global Symbols
 <LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::exists()
 <LI><a href="#[212]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::file()
 <LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::fileSystem()
-<LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_open_errors(int, unsigned)
+<LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;handle_open_errors(int, unsigned)
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_serial()
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 <LI><a href="#[23f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
@@ -3975,30 +3973,30 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[24c]"></a>core_util_are_interrupts_enabled</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, .\build\mbed_critical.o(i.core_util_are_interrupts_enabled))
-<BR><BR>[Called By]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR><BR>[Called By]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[306]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait_us
 </UL>
 
 <P><STRONG><a name="[24a]"></a>core_util_atomic_decr_u16</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, .\build\mbed_critical.o(i.core_util_atomic_decr_u16))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = core_util_atomic_decr_u16 &rArr; core_util_critical_section_exit &rArr;  mbed_assert_internal (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
+<BR>[Called By]<UL><LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
 </UL>
 
 <P><STRONG><a name="[24b]"></a>core_util_atomic_incr_u16</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, .\build\mbed_critical.o(i.core_util_atomic_incr_u16))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = core_util_atomic_incr_u16 &rArr; core_util_critical_section_exit &rArr;  mbed_assert_internal (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
+<BR>[Called By]<UL><LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
 </UL>
 
-<P><STRONG><a name="[1ca]"></a>core_util_critical_section_enter</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, .\build\mbed_critical.o(i.core_util_critical_section_enter))
+<P><STRONG><a name="[1c9]"></a>core_util_critical_section_enter</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, .\build\mbed_critical.o(i.core_util_critical_section_enter))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + In Cycle
 <LI>Call Chain = core_util_critical_section_enter &rArr;  mbed_assert_internal (Cycle)
 </UL>
@@ -4006,8 +4004,8 @@ Global Symbols
 <LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_are_interrupts_enabled
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_assert_internal
-<LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
-<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
+<LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
+<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Ticker::attach_us(mbed::Callback&lang;void()&rang;, unsigned long long)
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Ticker::setup(unsigned long long)
 <LI><a href="#[24b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_atomic_incr_u16
@@ -4016,7 +4014,7 @@ Global Symbols
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_vfprintf
 <LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_die
 <LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_irq_handler
-<LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
+<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
 <LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;default_idle_hook()
 <LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_set_handler
 <LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_remove_event
@@ -4027,19 +4025,19 @@ Global Symbols
 <LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::SerialBase::attach(mbed::Callback&lang;void()&rang;, mbed::SerialBase::IrqType)
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::~My_motor()
 <LI><a href="#[22d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::My_motor(PinName, PinName, PinName)
-<LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
+<LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
 <LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::PwmOut::operator =(float)
 </UL>
 
-<P><STRONG><a name="[1ce]"></a>core_util_critical_section_exit</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, .\build\mbed_critical.o(i.core_util_critical_section_exit))
+<P><STRONG><a name="[1cd]"></a>core_util_critical_section_exit</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, .\build\mbed_critical.o(i.core_util_critical_section_exit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + In Cycle
 <LI>Call Chain = core_util_critical_section_exit &rArr;  mbed_assert_internal (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_assert_internal
 <LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_are_interrupts_enabled
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
-<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
+<BR>[Called By]<UL><LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
+<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Ticker::attach_us(mbed::Callback&lang;void()&rang;, unsigned long long)
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Ticker::setup(unsigned long long)
 <LI><a href="#[24b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_atomic_incr_u16
@@ -4047,7 +4045,7 @@ Global Symbols
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_initialize
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_vfprintf
 <LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_irq_handler
-<LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
+<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
 <LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;default_idle_hook()
 <LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_set_handler
 <LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_remove_event
@@ -4058,7 +4056,7 @@ Global Symbols
 <LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::SerialBase::attach(mbed::Callback&lang;void()&rang;, mbed::SerialBase::IrqType)
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::~My_motor()
 <LI><a href="#[22d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::My_motor(PinName, PinName, PinName)
-<LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
+<LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
 <LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::PwmOut::operator =(float)
 </UL>
 
@@ -4074,8 +4072,8 @@ Global Symbols
 <LI><a href="#[247]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_function
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;analogin_init
 <LI><a href="#[2e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pinmap_merge
-<LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
-<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
+<LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
+<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
 <LI><a href="#[21d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new[] (unsigned)
 <LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_GPIO_Clock
 <LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxErrorNotify
@@ -4182,8 +4180,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 560 + Unknown Stack Size
 <LI>Call Chain = hal_deepsleep &rArr; rtc_synchronize &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SuspendTick
 <LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ResumeTick
 <LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
@@ -4191,19 +4189,19 @@ Global Symbols
 <LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtc_synchronize
 <LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWR_EnterSTOPMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
+<BR>[Called By]<UL><LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
 </UL>
 
 <P><STRONG><a name="[25d]"></a>hal_sleep</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, .\build\sleep.o(i.hal_sleep))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = hal_sleep &rArr; core_util_critical_section_exit &rArr;  mbed_assert_internal (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SuspendTick
 <LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ResumeTick
 <LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWR_EnterSLEEPMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
+<BR>[Called By]<UL><LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
 </UL>
 
 <P><STRONG><a name="[25f]"></a>init_uart</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, .\build\serial_api.o(i.init_uart))
@@ -4224,12 +4222,12 @@ Global Symbols
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Ticker::attach_us(mbed::Callback&lang;void()&rang;, unsigned long long)
 <LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::TimerEvent::TimerEvent__sub_object()
 <LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtos::Thread::start(mbed::Callback&lang;void()&rang;)
-<LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait
+<LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait
 <LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::SerialBase::attach(mbed::Callback&lang;void()&rang;, mbed::SerialBase::IrqType)
 <LI><a href="#[1d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::Stream::printf(const char*, ...)
 <LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtos::Thread::terminate()
 <LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::Stop()
-<LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::operator =(int)
+<LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::DigitalOut::operator =(int)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -4239,15 +4237,15 @@ Global Symbols
  + In Cycle
 <LI>Call Chain = mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_error_printf
 <LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_die
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Called By]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;analogin_init
-<LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::FilePath(const char*)
 <LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pin_mode
+<LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::FilePath::FilePath(const char*)
 <LI><a href="#[257]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pin_function
 <LI><a href="#[254]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_set
 <LI><a href="#[1be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_init
@@ -4268,7 +4266,7 @@ Global Symbols
 <LI>Call Chain = mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_init_out
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait_ms
 <LI><a href="#[274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_write
 </UL>
@@ -4289,8 +4287,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 280 + Unknown Stack Size
 <LI>Call Chain = mbed_error_vfprintf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_putc
 <LI><a href="#[1be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_init
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vsnprintf
@@ -4414,7 +4412,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osRtxTimerTick
 </UL>
 
-<P><STRONG><a name="[1c7]"></a>osMutexAcquire</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, .\build\rtx_mutex.o(i.osMutexAcquire))
+<P><STRONG><a name="[1c6]"></a>osMutexAcquire</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, .\build\rtx_mutex.o(i.osMutexAcquire))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = osMutexAcquire
 </UL>
 <BR>[Calls]<UL><LI><a href="#[290]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexError
@@ -4425,7 +4423,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtos::Mutex::lock(unsigned)
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_acquire
-<LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;singleton_lock()
+<LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;singleton_lock()
 </UL>
 
 <P><STRONG><a name="[218]"></a>osMutexDelete</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, .\build\rtx_mutex.o(i.osMutexDelete))
@@ -4454,7 +4452,7 @@ Global Symbols
 <LI><a href="#[216]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtos::Mutex::constructor(const char*)
 </UL>
 
-<P><STRONG><a name="[1c9]"></a>osMutexRelease</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, .\build\rtx_mutex.o(i.osMutexRelease))
+<P><STRONG><a name="[1c8]"></a>osMutexRelease</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, .\build\rtx_mutex.o(i.osMutexRelease))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = osMutexRelease
 </UL>
 <BR>[Calls]<UL><LI><a href="#[293]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EvrRtxMutexRelease
@@ -4465,7 +4463,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtos::Mutex::unlock()
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_mutex_release
-<LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;singleton_unlock()
+<LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;singleton_unlock()
 </UL>
 
 <P><STRONG><a name="[237]"></a>osRtxErrorNotify</STRONG> (Thumb, 116 bytes, Stack size 0 bytes, .\build\mbed_rtx_handlers.o(i.osRtxErrorNotify))
@@ -5073,7 +5071,7 @@ Global Symbols
 
 <P><STRONG><a name="[22c]"></a>pwmout_read</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, .\build\pwmout_api.o(i.pwmout_read))
 <BR><BR>[Called By]<UL><LI><a href="#[2e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwmout_period_us
-<LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
+<LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;My_motor::PidStep(float)
 </UL>
 
 <P><STRONG><a name="[200]"></a>pwmout_write</STRONG> (Thumb, 200 bytes, Stack size 48 bytes, .\build\pwmout_api.o(i.pwmout_write))
@@ -5196,15 +5194,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[2ec]"></a>sleep_manager_can_deep_sleep</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, .\build\mbed_sleep_manager.o(i.sleep_manager_can_deep_sleep))
-<BR><BR>[Called By]<UL><LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
+<BR><BR>[Called By]<UL><LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
 </UL>
 
-<P><STRONG><a name="[1cb]"></a>sleep_manager_lock_deep_sleep</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, .\build\mbed_sleep_manager.o(i.sleep_manager_lock_deep_sleep))
+<P><STRONG><a name="[1ca]"></a>sleep_manager_lock_deep_sleep</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, .\build\mbed_sleep_manager.o(i.sleep_manager_lock_deep_sleep))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32 + In Cycle
 <LI>Call Chain = sleep_manager_lock_deep_sleep &rArr;  error (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
 <LI><a href="#[24b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_atomic_incr_u16
 </UL>
@@ -5215,12 +5213,12 @@ Global Symbols
 <LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::PwmOut::operator =(float)
 </UL>
 
-<P><STRONG><a name="[1cc]"></a>sleep_manager_sleep_auto</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, .\build\mbed_sleep_manager.o(i.sleep_manager_sleep_auto))
+<P><STRONG><a name="[1cb]"></a>sleep_manager_sleep_auto</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, .\build\mbed_sleep_manager.o(i.sleep_manager_sleep_auto))
 <BR><BR>[Stack]<UL><LI>Max Depth = 568 + Unknown Stack Size
 <LI>Call Chain = sleep_manager_sleep_auto &rArr; hal_deepsleep &rArr; rtc_synchronize &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_sleep
 <LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_deepsleep
 <LI><a href="#[2ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_can_deep_sleep
@@ -5228,12 +5226,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;default_idle_hook()
 </UL>
 
-<P><STRONG><a name="[1cd]"></a>sleep_manager_unlock_deep_sleep</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, .\build\mbed_sleep_manager.o(i.sleep_manager_unlock_deep_sleep))
+<P><STRONG><a name="[1cc]"></a>sleep_manager_unlock_deep_sleep</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, .\build\mbed_sleep_manager.o(i.sleep_manager_unlock_deep_sleep))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32 + In Cycle
 <LI>Call Chain = sleep_manager_unlock_deep_sleep &rArr;  error (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
 <LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_atomic_decr_u16
 </UL>
@@ -5499,8 +5497,8 @@ Global Symbols
 <P><STRONG><a name="[1f1]"></a>ticker_insert_event_us</STRONG> (Thumb, 104 bytes, Stack size 32 bytes, .\build\mbed_ticker_api.o(i.ticker_insert_event_us))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = ticker_insert_event_us &rArr; schedule_interrupt &rArr; update_present_time &rArr; __aeabi_uldivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_present_time
 <LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;schedule_interrupt
 </UL>
@@ -5510,8 +5508,8 @@ Global Symbols
 <P><STRONG><a name="[f]"></a>ticker_irq_handler</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, .\build\mbed_ticker_api.o(i.ticker_irq_handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = ticker_irq_handler &rArr; schedule_interrupt &rArr; update_present_time &rArr; __aeabi_uldivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_present_time
 <LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;schedule_interrupt
 </UL>
@@ -5530,8 +5528,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 376 + Unknown Stack Size
 <LI>Call Chain = ticker_read_us &rArr; initialize &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_present_time
 <LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize
 </UL>
@@ -5542,8 +5540,8 @@ Global Symbols
 <P><STRONG><a name="[1f3]"></a>ticker_remove_event</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, .\build\mbed_ticker_api.o(i.ticker_remove_event))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = ticker_remove_event &rArr; schedule_interrupt &rArr; update_present_time &rArr; __aeabi_uldivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;schedule_interrupt
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed::TimerEvent::remove()
@@ -5553,8 +5551,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 384 + Unknown Stack Size
 <LI>Call Chain = ticker_set_handler &rArr; initialize &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
 <LI><a href="#[302]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_handler
 <LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize
 </UL>
@@ -5598,7 +5596,7 @@ Global Symbols
 <P><STRONG><a name="[ae]"></a>us_ticker_set_interrupt</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, .\build\us_ticker_32b.o(i.us_ticker_set_interrupt))
 <BR>[Address Reference Count : 1]<UL><LI> mbed_us_ticker_api.o(.constdata)
 </UL>
-<P><STRONG><a name="[1c4]"></a>wait</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, .\build\mbed_wait_api_rtos.o(i.wait))
+<P><STRONG><a name="[1c2]"></a>wait</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, .\build\mbed_wait_api_rtos.o(i.wait))
 <BR><BR>[Stack]<UL><LI>Max Depth = 424 + Unknown Stack Size
 <LI>Call Chain = wait &rArr; wait_us &rArr; ticker_read &rArr; ticker_read_us &rArr; initialize &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
@@ -5623,15 +5621,15 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 408 + Unknown Stack Size
 <LI>Call Chain = wait_us &rArr; ticker_read &rArr; ticker_read_us &rArr; initialize &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
-<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
+<BR>[Calls]<UL><LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
+<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
 <LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_are_interrupts_enabled
 <LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtos::Thread::wait(unsigned)
 <LI><a href="#[301]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ticker_read
 <LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_us_ticker_data
 </UL>
 <BR>[Called By]<UL><LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait_ms
-<LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait
+<LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait
 </UL>
 
 <P><STRONG><a name="[72]"></a>_get_lc_ctype</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, C:\Keil_v5\ARM\ARMCC\Bin\..\lib\armlib\c_w.l(lc_ctype_c.o)(locale$$code))
@@ -5657,8 +5655,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtos::Mutex::Mutex()
 <LI><a href="#[1e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mbed_assert_internal
-<LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;singleton_unlock()
-<LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;singleton_lock()
+<LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;singleton_unlock()
+<LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;singleton_lock()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SingletonPtr&lang;rtos::Mutex&rang;::operator -&rang;()
 </UL>
@@ -5925,23 +5923,23 @@ Local Symbols
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_open
 </UL>
 
-<P><STRONG><a name="[1c6]"></a>singleton_lock()</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, .\build\mbed_retarget.o(i._Z14singleton_lockv))
+<P><STRONG><a name="[1c5]"></a>singleton_lock()</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, .\build\mbed_retarget.o(i._Z14singleton_lockv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = singleton_lock() &rArr; osMutexAcquire
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
+<BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
 </UL>
 <BR>[Called By]<UL><LI><a href="#[307]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SingletonPtr&lang;rtos::Mutex&rang;::get()
 </UL>
 
-<P><STRONG><a name="[1c8]"></a>singleton_unlock()</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, .\build\mbed_retarget.o(i._Z16singleton_unlockv))
+<P><STRONG><a name="[1c7]"></a>singleton_unlock()</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, .\build\mbed_retarget.o(i._Z16singleton_unlockv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = singleton_unlock() &rArr; osMutexRelease
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
+<BR>[Calls]<UL><LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
 </UL>
 <BR>[Called By]<UL><LI><a href="#[307]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SingletonPtr&lang;rtos::Mutex&rang;::get()
 </UL>
 
-<P><STRONG><a name="[1cf]"></a>handle_open_errors(int, unsigned)</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, .\build\mbed_retarget.o(i._Z18handle_open_errorsij))
+<P><STRONG><a name="[1ce]"></a>handle_open_errors(int, unsigned)</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, .\build\mbed_retarget.o(i._Z18handle_open_errorsij))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = handle_open_errors(int, unsigned) &rArr; __aeabi_errno_addr &rArr; __user_perthread_libspace &rArr; os_kernel_is_active &rArr; osKernelGetState &rArr; svcRtxKernelGetState
 </UL>
 <BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
@@ -5953,11 +5951,11 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 576 + Unknown Stack Size
 <LI>Call Chain = default_idle_hook() &rArr; sleep_manager_sleep_auto &rArr; hal_deepsleep &rArr; rtc_synchronize &rArr; error &rArr; exit &rArr; mbed_die &rArr; gpio_init_out &rArr; gpio_init_out_ex &rArr; _gpio_init_out &rArr; gpio_mode &rArr; pin_mode &rArr; mbed_assert_internal &rArr;  mbed_die (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
-<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
-<LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
-<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
-<LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_exit
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;core_util_critical_section_enter
+<LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_unlock_deep_sleep
+<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_lock_deep_sleep
+<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sleep_manager_sleep_auto
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mbed_rtx_idle.o(.data)
 </UL>
@@ -6144,23 +6142,23 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[28f]"></a>__get_BASEPRI</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, .\build\rtx_mutex.o(i.__get_BASEPRI))
-<BR><BR>[Called By]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
-<LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
-<LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
+<BR><BR>[Called By]<UL><LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
+<LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
+<LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
 <LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexDelete
 </UL>
 
 <P><STRONG><a name="[28d]"></a>__get_IPSR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, .\build\rtx_mutex.o(i.__get_IPSR))
-<BR><BR>[Called By]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
-<LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
-<LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
+<BR><BR>[Called By]<UL><LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
+<LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
+<LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
 <LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexDelete
 </UL>
 
 <P><STRONG><a name="[28e]"></a>__get_PRIMASK</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, .\build\rtx_mutex.o(i.__get_PRIMASK))
-<BR><BR>[Called By]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
-<LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
-<LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
+<BR><BR>[Called By]<UL><LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexNew
+<LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexRelease
+<LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexAcquire
 <LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMutexDelete
 </UL>
 

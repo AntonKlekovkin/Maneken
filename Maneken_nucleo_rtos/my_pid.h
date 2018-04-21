@@ -36,7 +36,7 @@ class My_pid
         {
             
             kp=5;
-            kd=1;
+            kd=8;
             ki=0.00;
             
             integral=0;

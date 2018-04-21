@@ -42,6 +42,16 @@ class My_motor
 					float newSpeed;
 					newSpeed = Pid.CalculatePid(newValue)/100 + GetSpeed();
 					
+					if(newSpeed<0)
+					{
+						newSpeed=0;
+					}
+					
+					if(newSpeed>1)
+					{
+						newSpeed=1;
+					}
+					
 					SetSpeed(newSpeed);
 				}
         
