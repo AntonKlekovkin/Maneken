@@ -75,7 +75,10 @@ void time()
 			motor2.PidStep(pot2.omega/deltaT);
 			motor3.PidStep(pot3.omega/deltaT);
 			motor4.PidStep(pot4.omega/deltaT);
-			motor5.PidStep(pot5.omega/deltaT);
+			
+			
+			motor5.PidStep(pot5.currentPosition);
+			
 			motor6.PidStep(pot6.omega/deltaT);
 			motor7.PidStep(pot7.omega/deltaT);
 			

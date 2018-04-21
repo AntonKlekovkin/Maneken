@@ -14,6 +14,7 @@ class My_pid
         float out;                                          // output of PID
         float min_out, max_out;                 // minimum and maximum values of output
 				float ratio, freq;
+				uint8_t enabled;
         
         //constructor of the class
         My_pid()
@@ -33,6 +34,8 @@ class My_pid
             ratio = 4.3;
 						freq = 1000;
             
+						enabled=0;
+					
             set_min_max(-50,50);
             
         }
@@ -64,7 +67,9 @@ class My_pid
 				
 				void SetSettedValue(float a)
 				{
-					settedValue = a*ratio/freq;
+					//settedValue = a*ratio/freq;
+					settedValue = a;
+					enabled = 1;
 				}
         
         //calculate of control action
@@ -72,6 +77,11 @@ class My_pid
         {
             real_value=real_value1;
             err=settedValue-real_value;
+					
+						if(err<0)
+						{
+							err=err*(-1);
+						}
             
             integral+=(err+old_err)/2;
             
@@ -100,7 +110,8 @@ class My_pid
             settedValue=0;
             out=0;
             err=0;
-            old_err=0;      
+            old_err=0;   
+						enabled=0;					
             
         }
         

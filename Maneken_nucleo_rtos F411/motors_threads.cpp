@@ -12,9 +12,9 @@ My_motor motor6(PA_6, PA_5, PA_9);	//A,B,PWM
 My_motor motor7(PB_9, PB_8, PC_7);	//A,B,PWM
 
 My_potentiometer pot0(PC_0, 0.28, 0.64, 0.02); //Pin, pot_min, pot_max, delta
-My_potentiometer pot1(PC_1, 0.74, 0.98, 0.02);
+My_potentiometer pot1(PC_1, 0.71, 0.91, 0.02);
 My_potentiometer pot2(PB_0, 0.28, 0.64, 0.02); 
-My_potentiometer pot3(PA_4, 0.74, 0.98, 0.02);
+My_potentiometer pot3(PA_4, 0.00, 0.15, 0.02);
 My_potentiometer pot4(PA_1, 0.28, 0.64, 0.02); 
 My_potentiometer pot5(PA_0, 0.35, 0.67, 0.02);
 My_potentiometer pot6(PC_3, 0.28, 0.64, 0.02); 
@@ -45,19 +45,22 @@ void motor0_body()
 void motor1_body()
 {
 	
-	motor1.Pid.SetAllCoeff(3.0, 2.0, 0);
-	
 	while (1) 
 	{ 
+		//down
+		motor1.Pid.SetAllCoeff(0.1, 0.5, 0);
 
-		motor1.Pid.SetSettedValue(140);
+		motor1.Pid.SetSettedValue(pot1.min);
 		motor1.SetDirection(2);
 		while( !pot1.IsMinValue() );
 		motor1.Stop();
 		//debugBuffer.PrintBuffer1_2(&pc);
 		wait(0.5);
 		
-		motor1.Pid.SetSettedValue(140);
+		//up
+		motor1.Pid.SetAllCoeff(2.0, 2.0, 0);
+		
+		motor1.Pid.SetSettedValue(pot1.max);
 		motor1.SetDirection(1);
 		while( !pot1.IsMaxValue() );
 		motor1.Stop();
@@ -91,19 +94,22 @@ void motor2_body()
 void motor3_body()
 {
 	
-	motor3.Pid.SetAllCoeff(3.0, 2.0, 0);
-	
 	while (1) 
 	{ 
-		
-		motor3.Pid.SetSettedValue(140);
+		//up
+		motor3.Pid.SetAllCoeff(5.0, 7.0, 0);
+				
+		motor3.Pid.SetSettedValue(pot3.min);
 		motor3.SetDirection(2);
 		while( !pot3.IsMinValue() );
 		motor3.Stop();
 		//debugBuffer.PrintBuffer1_2(&pc);
 		wait(0.5);
 		
-		motor3.Pid.SetSettedValue(140);
+		//down
+		motor3.Pid.SetAllCoeff(1.3, 7.0, 0);
+		
+		motor3.Pid.SetSettedValue(pot3.max);
 		motor3.SetDirection(1);
 		while( !pot3.IsMaxValue() );
 		motor3.Stop();
@@ -136,18 +142,24 @@ void motor4_body()
 void motor5_body()
 {
 	
-	motor5.Pid.SetAllCoeff(15.0, 15.0, 0.01);
+	
 	
 	while (1) 
 	{
-		motor5.Pid.SetSettedValue(140);
+		//down
+		motor5.Pid.SetAllCoeff(1.3, 5.0, 0);
+		
+		motor5.Pid.SetSettedValue(pot5.min);
 		motor5.SetDirection(2);
 		while( !pot5.IsMinValue() );
 		motor5.Stop();
 		//debugBuffer.PrintBuffer1_2(&pc);
 		wait(0.5);
 		
-		motor5.Pid.SetSettedValue(200);
+		//up
+		motor5.Pid.SetAllCoeff(3.0, 5.0, 0);
+		
+		motor5.Pid.SetSettedValue(pot5.max);
 		motor5.SetDirection(1);
 		while( !pot5.IsMaxValue() );
 		motor5.Stop();

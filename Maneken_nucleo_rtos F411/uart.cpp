@@ -41,63 +41,55 @@ void UartRX()
 
 void ParseBuffer()
 {
-//My_motor uartMotor = motor0;
-	My_potentiometer uartPot = pot0;
 	uint8_t number;
-	
-	
-	
+		
 	if(bufferUart[0] == 0)
 	{
-		//uartMotor = motor0;
-		uartPot = pot0;
 		number = 0;
 		
-		
+		ParseCommand(&motor0, &pot0, number);
 	}
 	else if(bufferUart[0] == 1)
 	{
-		//uartMotor = motor1;
-		uartPot = pot1;
 		number = 1;
+		
+		ParseCommand(&motor1, &pot1, number);
 	}
 	else if(bufferUart[0] == 2)
 	{
-		//uartMotor = motor2;
-		uartPot = pot2;
 		number = 2;
+		
+		ParseCommand(&motor2, &pot2, number);
 	}
 	else if(bufferUart[0] == 3)
 	{
-//uartMotor = motor3;
-		uartPot = pot3;
 		number = 3;
+		
+		ParseCommand(&motor3, &pot3, number);
 	}
 	else if(bufferUart[0] == 4)
 	{
-		//uartMotor = motor4;
-		uartPot = pot4;
 		number = 4;
+		
+		ParseCommand(&motor4, &pot4, number);
 	}
 	else if(bufferUart[0] == 5)
 	{
-		//uartMotor = motor5;
-		uartPot = pot5;
 		number = 5;
 		
 		ParseCommand(&motor5, &pot5, number);
 	}
 	else if(bufferUart[0] == 6)
 	{
-		//uartMotor = motor6;
-		uartPot = pot6;
 		number = 6;
+		
+		ParseCommand(&motor6, &pot6, number);
 	}
 	else if(bufferUart[0] == 7)
 	{
-		//uartMotor = motor7;
-		uartPot = pot7;
 		number = 7;
+		
+		ParseCommand(&motor7, &pot7, number);
 	}
 	
 	

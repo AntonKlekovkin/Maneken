@@ -48,10 +48,13 @@ class My_motor
 				
 				void PidStep(float newValue)
 				{
-					float newSpeed;
-					newSpeed = Pid.CalculatePid(newValue)/100 + GetSpeed();
-					
-					SetSpeed(newSpeed);
+					if(Pid.enabled == 1)
+					{
+						float newSpeed;
+						newSpeed = Pid.CalculatePid(newValue)/100 + GetSpeed();
+						
+						SetSpeed(newSpeed);
+					}
 				}
         
         void SetDirection(int dir)
