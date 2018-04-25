@@ -41,6 +41,7 @@ DigitalOut test1(PC_10);
 //My_DebugBuffer debugBuffer(300, 300);
 uint8_t flag_buf=0;
 
+Ticker tim;	
 
 void time()
 {
@@ -70,17 +71,14 @@ void time()
 //				//debugBuffer.WriteValue2(pot1.currentPosition);
 //			}
 			
-			motor0.PidStep(pot0.omega/deltaT);
-			motor1.PidStep(pot1.omega/deltaT);
-			motor2.PidStep(pot2.omega/deltaT);
-			motor3.PidStep(pot3.omega/deltaT);
-			motor4.PidStep(pot4.omega/deltaT);
-			
-			
+			motor0.PidStep(pot0.currentPosition);
+			motor1.PidStep(pot1.currentPosition);
+			motor2.PidStep(pot2.currentPosition);
+			motor3.PidStep(pot3.currentPosition);
+			motor4.PidStep(pot4.currentPosition);			
 			motor5.PidStep(pot5.currentPosition);
-			
-			motor6.PidStep(pot6.omega/deltaT);
-			motor7.PidStep(pot7.omega/deltaT);
+			motor6.PidStep(pot6.currentPosition);
+			motor7.PidStep(pot7.currentPosition);
 			
 			test1=0;
     }
@@ -96,6 +94,10 @@ int main()
     pc.attach(&UartRX);
     pc.printf("\n\n*** RTOS maneken start ***\n");
 		
+		tim.attach_us(&time, 5000);
+	
+		wait(0.5);
+	
 		motor0.Stop();
     motor1.Stop();
     motor2.Stop();
@@ -106,9 +108,9 @@ int main()
 		motor7.Stop();
 
   
-		//t1.start(motor1_body);
-	Ticker tim;	
-	tim.attach_us(&time, 5000);
+		
+	
+	
 	
     while (true) 
     {

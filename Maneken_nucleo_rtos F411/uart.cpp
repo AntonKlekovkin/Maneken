@@ -3,7 +3,7 @@
 Serial pc(SERIAL_TX, SERIAL_RX);
 uint8_t bufferUart[2];
 uint8_t bufferUartCount=0;
-int8_t flag_thread=0;
+int8_t flag_thread=100;
 
 extern My_motor motor0;	//A,B,PWM
 extern My_motor motor1;	//A,B,PWM

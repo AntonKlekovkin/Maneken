@@ -17,14 +17,19 @@ class My_motor
         float omega;
         int pulse_enc;
         char direction;
+		
+				float position;
         
         My_motor(PinName dir1, PinName dir2, PinName pwm) : direct1(dir1), direct2(dir2), speed(pwm)
         {
+						wait(0.1);
+						position = -1;
             flag_start=0;
             flagRotate=0;
             flag_dir=0;
-            speed=1;
+            SetSpeed(0);
             direction=0;
+						Stop();
         }
         
         void SetSpeed(float sp)

@@ -64,5 +64,17 @@ class My_potentiometer
 				{
 					return !(currentPosition < (max-delta));
 				}
+				
+				bool IsValue(float value)
+				{
+					float potValue = CalculatePot(value);
+					
+					return (currentPosition < (potValue + 0.5f*delta) && currentPosition > (potValue - 0.5f*delta));
+				}
+				
+				float CalculatePot(float value)
+				{
+					return (max-min)*value + min;
+				}
 };
 
