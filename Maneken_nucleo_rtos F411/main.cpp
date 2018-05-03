@@ -96,114 +96,33 @@ int main()
 		
 		tim.attach_us(&time, 5000);
 	
-		wait(0.5);
-	
-		motor0.Stop();
-    motor1.Stop();
-    motor2.Stop();
-    motor3.Stop();
-    motor4.Stop();
-		motor5.Stop();
-    motor6.Stop();
-		motor7.Stop();
+		wait(1);
 
-  
+		t0.start(motor0_body);
+		t1.start(motor1_body);
+		t2.start(motor2_body);
+		t3.start(motor3_body);
+		t4.start(motor4_body);
+		t5.start(motor5_body);
+		t6.start(motor6_body);
+	
+		GoToNull();
+		wait(2);
+	
+	
+		//Trajectory1();
 		
-	
-	
+//		Trajectory2();
+//		
+//		Trajectory3();
+//		
+		Trajectory4();
 	
     while (true) 
     {
-				if(flag_thread==0)
-				{
-					t0.start(motor0_body);
-					flag_thread=100;
-				}
-				else if(flag_thread==1)
-				{
-					t1.start(motor1_body);
-					flag_thread=100;
-				}
-				else if(flag_thread==2)
-				{
-					t2.start(motor2_body);
-					flag_thread=100;
-				}
-				else if(flag_thread==3)
-				{
-					t3.start(motor3_body);
-					flag_thread=100;
-				}
-				else if(flag_thread==4)
-				{
-					t4.start(motor4_body);
-					flag_thread=100;
-				}
-				else if(flag_thread==5)
-				{
-					t5.start(motor5_body);
-					flag_thread=100;
-				}
-				else if(flag_thread==6)
-				{
-					t6.start(motor6_body);
-					flag_thread=100;
-				}
-				else if(flag_thread==7)
-				{
-					t7.start(motor7_body);
-					flag_thread=100;
-				}
-				else if(flag_thread==10)
-				{
-					t0.terminate();
-					flag_thread=100;
-					motor0.Stop();
-				}
-				else if(flag_thread==11)
-				{
-					t1.terminate();
-					flag_thread=100;
-					motor1.Stop();
-				}
-				else if(flag_thread==12)
-				{
-					t2.terminate();
-					flag_thread=100;
-					motor2.Stop();
-				}
-				else if(flag_thread==13)
-				{
-					t3.terminate();
-					flag_thread=100;
-					motor3.Stop();
-				}
-				else if(flag_thread==14)
-				{
-					t4.terminate();
-					flag_thread=100;
-					motor4.Stop();
-				}
-				else if(flag_thread==15)
-				{
-					t5.terminate();
-					flag_thread=100;
-					motor5.Stop();
-				}
-				else if(flag_thread==16)
-				{
-					t6.terminate();
-					flag_thread=100;
-					motor6.Stop();
-				}
-				else if(flag_thread==17)
-				{
-					t7.terminate();
-					flag_thread=100;
-					motor7.Stop();
-				}
-				
-        led1 = !led1;
-        wait(0.5);
+			
+			
+			led1 = !led1;
+			wait(0.5);
     }
 }

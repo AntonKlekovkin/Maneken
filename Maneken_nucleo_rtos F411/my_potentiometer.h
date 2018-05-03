@@ -65,16 +65,28 @@ class My_potentiometer
 					return !(currentPosition < (max-delta));
 				}
 				
-				bool IsValue(float value)
+				bool IsValue(float value, int8_t sign)
 				{
 					float potValue = CalculatePot(value);
 					
-					return (currentPosition < (potValue + 0.5f*delta) && currentPosition > (potValue - 0.5f*delta));
+					bool a = (currentPosition < (potValue + 0.5f*delta) && currentPosition > (potValue - 0.5f*delta));
+					bool b;
+					
+					if( (currentPosition - potValue)*sign > 0)
+					{
+						b=false;
+					}
+					else
+					{
+						b=true;
+					}
+					
+					return a || b;
 				}
 				
 				float CalculatePot(float value)
 				{
-					return (max-min)*value + min;
+					return (max-min)* (value/100) + min;
 				}
 };
 

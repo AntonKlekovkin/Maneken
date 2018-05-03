@@ -18,20 +18,42 @@ class My_motor
         int pulse_enc;
         char direction;
 		
+				char flagInvertPosition;
 				float position;
+				const float positionMin = 0;
+				const float positionMax = 100;
+				const float positionStop = -1;
         
         My_motor(PinName dir1, PinName dir2, PinName pwm) : direct1(dir1), direct2(dir2), speed(pwm)
         {
 						wait(0.1);
-						position = -1;
+//					
+//						positionMin = 0;
+//						positionMax = 100;
+//						positionStop = -1;
+						position = positionStop;
+					
             flag_start=0;
             flagRotate=0;
             flag_dir=0;
             SetSpeed(0);
             direction=0;
 						Stop();
+					flagInvertPosition=0;
         }
         
+				void SetPosition(float pos)
+				{
+					if(flagInvertPosition == 0)
+					{
+						position = pos;
+					}
+					else
+					{
+						position = positionMax - pos;
+					}
+				}
+				
         void SetSpeed(float sp)
         {
             speed=1-sp;

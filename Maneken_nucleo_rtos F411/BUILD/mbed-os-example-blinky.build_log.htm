@@ -22,12 +22,26 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 C:\Антон\Проекты\Манекен\ManekenGit\Maneken_nucleo_rtos F411\mbed-os-example-blinky.uvprojx
-Project File Date:  04/21/2018
+Project File Date:  04/25/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'mbed-os-example-blinky'
-".\BUILD\mbed-os-example-blinky.axf" - 0 Error(s), 0 Warning(s).
+compiling motors_threads.cpp...
+my_motor.h(23): warning:  #382-D: in-class initializer for nonstatic member is nonstandard
+  				const float positionMin = 0;
+my_motor.h(24): warning:  #382-D: in-class initializer for nonstatic member is nonstandard
+  				const float positionMax = 100;
+my_motor.h(25): warning:  #382-D: in-class initializer for nonstatic member is nonstandard
+  				const float positionStop = -1;
+motors_threads.cpp(54): warning:  #177-D: variable "PidUpMotor6"  was declared but never referenced
+  static float PidUpMotor6[3] = {10.0, 10.0, 0};
+motors_threads.cpp(56): warning:  #177-D: variable "coeffSpeedUpMotor6"  was declared but never referenced
+  static float coeffSpeedUpMotor6 = 1;
+motors_threads.cpp: 5 warnings, 0 errors
+linking...
+Program Size: Code=56620 RO-data=4188 RW-data=2708 ZI-data=10080  
+".\BUILD\mbed-os-example-blinky.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -41,7 +55,7 @@ Package Vendor: Keil
   C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:06
+Build Time Elapsed:  00:00:09
 </pre>
 </body>
 </html>

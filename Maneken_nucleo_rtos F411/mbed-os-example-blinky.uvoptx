@@ -150,34 +150,34 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>83</LineNumber>
+          <LineNumber>28</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134240778</Address>
+          <Address>134243382</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\РђРЅС‚РѕРЅ\РџСЂРѕРµРєС‚С‹\РњР°РЅРµРєРµРЅ\ManekenGit\Maneken_nucleo_rtos F411\motors_threads.cpp</Filename>
+          <Filename>C:\РђРЅС‚РѕРЅ\РџСЂРѕРµРєС‚С‹\РњР°РЅРµРєРµРЅ\ManekenGit\Maneken_nucleo_rtos F411\uart.cpp</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\mbed_os_example_blinky\motors_threads.cpp\83</Expression>
+          <Expression>\\mbed_os_example_blinky\uart.cpp\28</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>93</LineNumber>
+          <LineNumber>96</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134240850</Address>
+          <Address>134271898</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\РђРЅС‚РѕРЅ\РџСЂРѕРµРєС‚С‹\РњР°РЅРµРєРµРЅ\ManekenGit\Maneken_nucleo_rtos F411\motors_threads.cpp</Filename>
+          <Filename>C:\РђРЅС‚РѕРЅ\РџСЂРѕРµРєС‚С‹\РњР°РЅРµРєРµРЅ\ManekenGit\Maneken_nucleo_rtos F411\mbed-os\targets\TARGET_STM\TARGET_STM32F4\serial_device.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\mbed_os_example_blinky\motors_threads.cpp\93</Expression>
+          <Expression>\\mbed_os_example_blinky\mbed-os/targets/TARGET_STM/TARGET_STM32F4/serial_device.c\96</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -195,6 +195,11 @@
           <count>2</count>
           <WinNumber>1</WinNumber>
           <ItemText>motor2.Pid</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>motor0</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
@@ -250,7 +255,7 @@
 
   <Group>
     <GroupName>mbed-os</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

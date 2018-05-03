@@ -120,12 +120,13 @@ void ParseCommand(My_motor *uartMotor, My_potentiometer *uartPot, uint8_t number
 	{
 		pc.printf("pot%d=%f\r\n", number, uartPot->GetPosition());
 	}
-	else if(bufferUart[1] == 4)
+	
+	else if(bufferUart[1] <= 100)
 	{
-		flag_thread=number;
+		uartMotor->SetPosition( (float)bufferUart[1] );
 	}
-	else if(bufferUart[1] == 5)
-	{
-		flag_thread=number+10;
-	}
+//	else if(bufferUart[1] == 5)
+//	{
+//		flag_thread=number+10;
+//	}
 }
