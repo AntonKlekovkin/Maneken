@@ -4745,6 +4745,11 @@
               <FileType>5</FileType>
               <FilePath>.\motors_threads.h</FilePath>
             </File>
+            <File>
+              <FileName>my_debugBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\my_debugBuffer.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

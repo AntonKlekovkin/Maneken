@@ -1,10 +1,5 @@
 #include "mbed.h"
-
-#include "my_pid.h"
 #include "my_motor.h"
-#include "my_potentiometer.h"
-
-
 
 void motor0_body(void);
 void motor1_body(void);

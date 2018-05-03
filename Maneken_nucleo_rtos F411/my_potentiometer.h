@@ -57,12 +57,12 @@ class My_potentiometer
 				
 				bool IsMinValue()
 				{
-					return !(currentPosition > (min+delta));
+					return !(currentPosition > (min + 0.5f*delta));
 				}
 				
 				bool IsMaxValue()
 				{
-					return !(currentPosition < (max-delta));
+					return !(currentPosition < (max - 0.5f*delta));
 				}
 				
 				bool IsValue(float value, int8_t sign)
