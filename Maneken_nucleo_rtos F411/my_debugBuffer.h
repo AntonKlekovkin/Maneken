@@ -82,8 +82,10 @@ class My_DebugBuffer
 			
 		for(i=0;i<length1;i++)
 		{
-			u->printf("%d %f\r\n", i, buf1[i] );	
+			u->printf("%d %f\r\n", i, buf1[i] );
 		}
+		
+		ClearBuffer();
 
 	}
 	
@@ -102,6 +104,20 @@ class My_DebugBuffer
 	{
 		delete [] buf1;
 		delete [] buf2;
+	}
+	
+	void ClearBuffer()
+	{
+		int i;
+		
+		for(i=0;i<length1;i++)
+		{
+			buf1[i]=0;
+			buf2[i]=0;	
+		}
+		countBuffer1=0;
+		countBuffer2=0;
+		
 	}
 	
 };
