@@ -1,4 +1,8 @@
 #include "mbed.h"
+#include "my_potentiometer.h"
+#include "my_pid.h"
+#include "my_debugBuffer.h"
+
 
 class My_motor
 {
@@ -11,6 +15,9 @@ class My_motor
         DigitalOut direct2;
         PwmOut speed;
         My_pid Pid;
+				My_potentiometer pot;
+				My_DebugBuffer debugBuffer;
+		
         char flag_start;
         char flagRotate;
         char flag_dir;
@@ -20,11 +27,12 @@ class My_motor
 		
 				char flagInvertPosition;
 				float position;
-				const float positionMin = 0;
-				const float positionMax = 100;
-				const float positionStop = -1;
+				static const float positionMin = 0;
+				static const float positionMax = 100;
+				static const float positionStop = -1;
         
-        My_motor(PinName dir1, PinName dir2, PinName pwm) : direct1(dir1), direct2(dir2), speed(pwm)
+        My_motor(PinName dir1, PinName dir2, PinName pwm, PinName adc_pin, float _min, float _max, float _delta) 
+					: direct1(dir1), direct2(dir2), speed(pwm), pot(adc_pin, _min, _max, _delta), debugBuffer(100)
         {
 						wait(0.1);
 //					
@@ -56,16 +64,39 @@ class My_motor
 				
         void SetSpeed(float sp)
         {
-            speed=1-sp;
+					if( pot.IsMaxValue() && direction == 1)
+					{
+						speed=1;
+						return;
+					}
+					
+					if(pot.IsMinValue() && direction == 2)
+					{
+						speed=1;
+						return;
+					}
+					
+					if(sp>1)
+					{
+						speed=0;
+					}
+					else if(sp<0)
+					{
+						speed=1;
+					}
+					else
+					{
+						speed= 1-sp;
+					}
 
-						if( GetSpeed() != 0 && direction != 0)
-						{
-							flagRotate=1;
-						}
-						else
-						{
-							flagRotate=0;
-						}
+					if( GetSpeed() != 0 && direction != 0)
+					{
+						flagRotate=1;
+					}
+					else
+					{
+						flagRotate=0;
+					}
         }
         
         float GetSpeed()
@@ -73,14 +104,15 @@ class My_motor
             return 1-speed;    
         }
 				
-				void PidStep(float newValue)
+				void PidStep()
 				{
 					if(Pid.enabled == 1)
 					{
 						float newSpeed;
-						newSpeed = Pid.CalculatePid(newValue)/100 + GetSpeed();
+						newSpeed = Pid.CalculatePid(pot.currentPosition)/100 + GetSpeed();
 						
 						SetSpeed(newSpeed);
+						debugBuffer.WriteValue(newSpeed);
 					}
 				}
         
@@ -132,6 +164,7 @@ class My_motor
             SetSpeed(0);
             flagRotate=0;
 						Pid.ResetOnZero();
+					
         }
 
 };

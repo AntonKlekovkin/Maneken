@@ -10,15 +10,6 @@ extern My_motor motor5;	//A,B,PWM
 extern My_motor motor6;	//A,B,PWM
 extern My_motor motor7;	//A,B,PWM
 
-extern My_potentiometer pot0; //Pin, pot_min, pot_max, delta
-extern My_potentiometer pot1;
-extern My_potentiometer pot2; 
-extern My_potentiometer pot3; //Pin, pot_min, pot_max, delta
-extern My_potentiometer pot4;
-extern My_potentiometer pot5; 
-extern My_potentiometer pot6; //Pin, pot_min, pot_max, delta
-extern My_potentiometer pot7;
-
 
 void UartRX(void);
 
@@ -54,14 +45,14 @@ void time()
     {
 			test1=1;
 			
-			pot0.Refresh();
-      pot1.Refresh();
-			pot2.Refresh();
-			pot3.Refresh();
-			pot4.Refresh();
-			pot5.Refresh();
-			pot6.Refresh();
-			pot7.Refresh();
+			motor0.pot.Refresh();
+      motor1.pot.Refresh();
+			motor2.pot.Refresh();
+			motor3.pot.Refresh();
+			motor4.pot.Refresh();
+			motor5.pot.Refresh();
+			motor6.pot.Refresh();
+			motor7.pot.Refresh();
 			
 			i1=0;
 			
@@ -71,14 +62,14 @@ void time()
 //				//debugBuffer.WriteValue2(pot1.currentPosition);
 //			}
 			
-			motor0.PidStep(pot0.currentPosition);
-			motor1.PidStep(pot1.currentPosition);
-			motor2.PidStep(pot2.currentPosition);
-			motor3.PidStep(pot3.currentPosition);
-			motor4.PidStep(pot4.currentPosition);			
-			motor5.PidStep(pot5.currentPosition);
-			motor6.PidStep(pot6.currentPosition);
-			motor7.PidStep(pot7.currentPosition);
+			motor0.PidStep();
+			motor1.PidStep();
+			motor2.PidStep();
+			motor3.PidStep();
+			motor4.PidStep();			
+			motor5.PidStep();
+			motor6.PidStep();
+			motor7.PidStep();
 			
 			test1=0;
     }
@@ -116,7 +107,7 @@ int main()
 //		
 //		Trajectory3();
 //		
-		Trajectory4();
+		//Trajectory4();
 	
     while (true) 
     {
