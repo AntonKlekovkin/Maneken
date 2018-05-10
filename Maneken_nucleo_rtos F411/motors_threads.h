@@ -1,3 +1,7 @@
+#ifndef MOTOR_THREADS_H
+#define MOTOR_THREADS_H
+
+
 #include "mbed.h"
 #include "my_motor.h"
 
@@ -16,3 +20,7 @@ void Trajectory(int8_t pos0, int8_t pos1, int8_t pos2, int8_t pos3, int8_t pos4,
 void Trajectory2(void);
 void Trajectory3();
 void Trajectory4();
+
+#endif
+
+

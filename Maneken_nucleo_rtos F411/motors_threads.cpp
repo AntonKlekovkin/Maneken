@@ -10,7 +10,7 @@ My_motor motor3(PA_11, PA_12, PB_4, PA_4, 0.00, 0.17, 0.03);	//A,B,PWM, PinPot, 
 My_motor motor4(PC_5, PC_6, PB_10, PA_1, 0.54, 0.74, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor5(PB_6, PA_7, PA_8, PA_0, 0.35, 0.67, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor6(PA_6, PA_5, PA_9, PC_3, 0.70, 1.00, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
-My_motor motor7(PB_9, PB_8, PC_7, PC_2, 0.74, 0.98, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
+My_motor motor7(PB_9, PB_8, PC_7, PC_2, 0.24, 0.39, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 
 
 
@@ -34,8 +34,11 @@ static float PidUpMotor5[3] = {3.0, 35.0, 0};
 
 static float PidDownMotor6[3] = {15.0, 10.0, 0};
 
-static float coeffSpeedDownMotor = 1;
-static float coeffSpeedUpMotor = 1;
+static float PidDownMotor7[3] = {2.5, 35.0, 0};
+static float PidUpMotor7[3] = {5.0, 35.0, 0};
+
+static float coeffSpeedDownMotor = 2.5;
+static float coeffSpeedUpMotor = 2.5;
 
 void motor0_body()
 {
@@ -82,10 +85,13 @@ void motor0_body()
 			}			
 			
 			motor0.Pid.SetSettedValue(motor0.pot.CalculatePot(motor0.position));
-			while( !motor0.pot.IsValue(motor0.position, deltaPosSign) );
-			motor0.Stop();
 			
-			motor0.position = -1;
+			if( motor0.pot.IsValue(motor0.position, deltaPosSign) )
+			{
+				motor0.Stop();
+			
+				motor0.position = -1;
+			}
 			
 			//motor0.debugBuffer.PrintBuffer(&pc);
 		}
@@ -138,10 +144,13 @@ void motor1_body()
 			}			
 			
 			motor1.Pid.SetSettedValue(motor1.pot.CalculatePot(motor1.position));
-			while( !motor1.pot.IsValue(motor1.position, deltaPosSign) );
-			motor1.Stop();
 			
-			motor1.position = -1;
+			if( motor1.pot.IsValue(motor1.position, deltaPosSign) )
+			{
+				motor1.Stop();
+			
+				motor1.position = -1;
+			}
 		}
 	}
 	
@@ -194,10 +203,13 @@ void motor2_body()
 			}			
 			
 			motor2.Pid.SetSettedValue(motor2.pot.CalculatePot(motor2.position));
-			while( !motor2.pot.IsValue(motor2.position, deltaPosSign) );
-			motor2.Stop();
 			
-			motor2.position = -1;
+			if( motor2.pot.IsValue(motor2.position, deltaPosSign) )
+			{
+				motor2.Stop();
+			
+				motor2.position = -1;
+			}
 		}
 	}
 	
@@ -249,12 +261,14 @@ void motor3_body()
 			}			
 			
 			motor3.Pid.SetSettedValue(motor3.pot.CalculatePot(motor3.position));
-			while( !motor3.pot.IsValue(motor3.position, deltaPosSign) );
-			motor3.Stop();
+			if( motor3.pot.IsValue(motor3.position, deltaPosSign) )
+			{
+				motor3.Stop();
 			
-			motor3.position = -1;
+				motor3.position = -1;
+			}
 			
-			motor3.debugBuffer.PrintBuffer(&pc);
+			//motor3.debugBuffer.PrintBuffer(&pc);
 		}
 	}
 	
@@ -306,12 +320,15 @@ void motor4_body()
 			}			
 			
 			motor4.Pid.SetSettedValue(motor4.pot.CalculatePot(motor4.position));
-			while( !motor4.pot.IsValue(motor4.position, deltaPosSign) );
-			motor4.Stop();
 			
-			motor4.position = motor4.positionStop;
+			if( motor4.pot.IsValue(motor4.position, deltaPosSign) )
+			{
+				motor4.Stop();
 			
-			motor4.debugBuffer.PrintBuffer(&pc);
+				motor4.position = motor4.positionStop;
+			}
+			
+			//motor4.debugBuffer.PrintBuffer(&pc);
 		}
 	}
 	
@@ -364,12 +381,15 @@ void motor5_body()
 			}			
 			
 			motor5.Pid.SetSettedValue(motor5.pot.CalculatePot(motor5.position));
-			while( !motor5.pot.IsValue(motor5.position, deltaPosSign) );
-			motor5.Stop();
 			
-			motor5.position = motor5.positionStop;
+			if( motor5.pot.IsValue(motor5.position, deltaPosSign) )
+			{
+				motor5.Stop();
 			
-			motor5.debugBuffer.PrintBuffer(&pc);
+				motor5.position = motor5.positionStop;
+			}
+			
+			//motor5.debugBuffer.PrintBuffer(&pc);
 		}
 	}
 }
@@ -419,34 +439,91 @@ void motor6_body()
 			}			
 			
 			motor6.Pid.SetSettedValue(motor6.pot.CalculatePot(motor6.position));
-			while( !motor6.pot.IsValue(motor6.position, deltaPosSign) );
-			motor6.Stop();
 			
-			motor6.position = motor6.positionStop;
+			if( motor6.pot.IsValue(motor6.position, deltaPosSign) )
+			{
+				motor6.Stop();
 			
-			motor6.debugBuffer.PrintBuffer(&pc);
+				motor6.position = motor6.positionStop;
+			}
+			
+			//motor6.debugBuffer.PrintBuffer(&pc);
 		}
 	}
 }
 
 void motor7_body()
 {
-	
-	
+	while(1)
+	{
+		if(motor7.position == -1)
+		{
+			motor7.Stop();
+		}
+		else
+		{
+			if(motor7.position < 0)
+			{
+				motor7.position = 0;
+			}
+			if(motor7.position > 100)
+			{
+				motor7.position = 100;
+			}
+			// opredelit napravlenie i koefficienti pid
+			float deltaPos = motor7.pot.currentPosition - motor7.pot.CalculatePot(motor7.position);
+			float deltaPosSign;
+			
+			if(deltaPos>=0)
+			{
+				deltaPosSign = 1;
+			}
+			else
+			{
+				deltaPosSign = -1;
+			}
+			
+			if(deltaPos > 0)
+			{
+				//down
+				motor7.SetDirection(2);
+				motor7.Pid.SetAllCoeff(coeffSpeedDownMotor*PidDownMotor7[0], PidDownMotor7[1], PidDownMotor7[2]);
+			}
+			else
+			{
+				//up
+				motor7.SetDirection(1);
+				motor7.Pid.SetAllCoeff(coeffSpeedUpMotor*PidUpMotor7[0], PidUpMotor7[1], PidUpMotor7[2]);
+			}			
+			
+			motor7.Pid.SetSettedValue(motor7.pot.CalculatePot(motor7.position));
+			
+			if( motor7.pot.IsValue(motor7.position, deltaPosSign) )
+			{
+				motor7.Stop();
+			
+				motor7.position = -1;
+			}
+			
+			//motor0.debugBuffer.PrintBuffer(&pc);
+		}
+	}
+
 }
 
 void Trajectory(int8_t pos0, int8_t pos1, int8_t pos2, int8_t pos3, int8_t pos4, int8_t pos5, int8_t pos6)
 {
-	motor0.SetPosition(pos0);
+	//motor0.SetPosition(pos0);
 	motor1.SetPosition(pos1);
 	motor2.SetPosition(pos2);
 	motor3.SetPosition(pos3);
 	motor4.SetPosition(pos4);
 	motor5.SetPosition(pos5);
 	motor6.SetPosition(pos6);
+	motor7.SetPosition(pos0);
 	
 	while( (motor0.position != -1) || (motor1.position != -1) || (motor2.position != -1) || (motor3.position != -1) ||
-					(motor4.position != -1) || (motor5.position != -1) ||	(motor6.position != -1) );
+					(motor4.position != -1) || (motor5.position != -1) ||	(motor6.position != -1) || (motor7.position != -1) );
 	
 	wait(0.2);
 }

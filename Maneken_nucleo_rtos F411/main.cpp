@@ -1,5 +1,6 @@
 #include "mbed.h"
 #include "motors_threads.h"
+#include "uart.h"
 
 extern My_motor motor0;	//A,B,PWM
 extern My_motor motor1;	//A,B,PWM
@@ -19,9 +20,9 @@ extern Serial pc;
 
 Thread t0, t1, t2, t3, t4, t5, t6, t7;
 
-DigitalOut led1(LED1);
+DigitalOut my_led(PA_5);
 
-
+extern uint8_t flagBufferKinnect;
 
 // threads
 //uint8_t flag_thread1=0, flag_thread2=0;
@@ -36,10 +37,10 @@ Ticker tim;
 
 void time()
 {
-    static int i1=0;
+    static int i1=0, i2=0;
     const int deltaT = 5; // ms        
     i1++;
-    
+    i2++;
     
     if(i1==deltaT)
     {
@@ -73,6 +74,12 @@ void time()
 			
 			test1=0;
     }
+		
+		if(i2==200)
+		{
+			my_led = !my_led;
+			i2=0;
+		}
 
 }
 
@@ -86,18 +93,23 @@ int main()
     pc.printf("\n\n*** RTOS maneken start ***\n");
 		
 		tim.attach_us(&time, 5000);
+		
+		InitUartKinnect();
 	
 		wait(1);
 
-		t0.start(motor0_body);
+		motor3.flagInvertPosition=1;
+	
+		//t0.start(motor0_body);
 		t1.start(motor1_body);
 		t2.start(motor2_body);
 		t3.start(motor3_body);
 		t4.start(motor4_body);
 		t5.start(motor5_body);
 		t6.start(motor6_body);
+		t7.start(motor7_body);
 	
-		GoToNull();
+		//GoToNull();
 		wait(2);
 	
 	
@@ -111,9 +123,13 @@ int main()
 	
     while (true) 
     {
+			if(flagBufferKinnect)
+			{
+				ParseBufferKinnect();
+				flagBufferKinnect=0;
+			}
 			
-			
-			led1 = !led1;
-			wait(0.5);
+//			my_led = !my_led;
+//			wait(0.5);
     }
 }

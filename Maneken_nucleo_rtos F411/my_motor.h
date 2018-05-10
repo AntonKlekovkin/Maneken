@@ -1,3 +1,6 @@
+#ifndef MY_MOTOR_H
+#define MY_MOTOR_H
+
 #include "mbed.h"
 #include "my_potentiometer.h"
 #include "my_pid.h"
@@ -168,3 +171,7 @@ class My_motor
         }
 
 };
+
+#endif
+
+

@@ -1,3 +1,7 @@
+#ifndef MY_PID_H
+#define MY_PID_H
+
+
 #include "mbed.h"
 #include <math.h>
 
@@ -117,3 +121,6 @@ class My_pid
         
 
 };
+
+
+#endif

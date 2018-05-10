@@ -224,3 +224,4 @@
 .\build\main.o: my_potentiometer.h
 .\build\main.o: my_pid.h
 .\build\main.o: my_debugBuffer.h
+.\build\main.o: uart.h

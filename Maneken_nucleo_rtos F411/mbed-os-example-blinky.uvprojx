@@ -4765,6 +4765,11 @@
               <FileType>5</FileType>
               <FilePath>.\uart.h</FilePath>
             </File>
+            <File>
+              <FileName>uartKinnect.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\uartKinnect.cpp</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

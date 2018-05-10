@@ -1,3 +1,7 @@
+#ifndef MY_POTENTIOMETER_H
+#define MY_POTENTIOMETER_H
+
+
 #include "mbed.h"
 
 class My_potentiometer
@@ -89,4 +93,7 @@ class My_potentiometer
 					return (max-min)* (value/100) + min;
 				}
 };
+
+#endif
+
 

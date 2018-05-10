@@ -1,3 +1,6 @@
+#ifndef MY_DEBUG_BUFFER_H
+#define MY_DEBUG_BUFFER_H
+
 #include "mbed.h"
 
 class My_DebugBuffer
@@ -121,3 +124,7 @@ class My_DebugBuffer
 	}
 	
 };
+
+#endif
+
+
