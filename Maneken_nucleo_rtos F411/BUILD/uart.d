@@ -220,6 +220,7 @@
 .\build\uart.o: mbed-os/./platform/ATCmdParser.h
 .\build\uart.o: mbed-os/./platform/CriticalSectionLock.h
 .\build\uart.o: mbed-os/./platform/DeepSleepLock.h
+.\build\uart.o: motors_threads.h
 .\build\uart.o: my_motor.h
 .\build\uart.o: my_potentiometer.h
 .\build\uart.o: my_pid.h

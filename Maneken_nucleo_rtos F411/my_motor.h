@@ -29,10 +29,10 @@ class My_motor
         char direction;
 		
 				char flagInvertPosition;
-				float position;
-				static const float positionMin = 0;
-				static const float positionMax = 100;
-				static const float positionStop = -1;
+				int8_t position;
+				static const int8_t positionMin = 0;
+				static const int8_t positionMax = 100;
+				static const int8_t positionStop = -1;
         
         My_motor(PinName dir1, PinName dir2, PinName pwm, PinName adc_pin, float _min, float _max, float _delta) 
 					: direct1(dir1), direct2(dir2), speed(pwm), pot(adc_pin, _min, _max, _delta), debugBuffer(100)
@@ -53,7 +53,7 @@ class My_motor
 					flagInvertPosition=0;
         }
         
-				void SetPosition(float pos)
+				void SetPosition(int8_t pos)
 				{
 					if(flagInvertPosition == 0)
 					{
@@ -62,6 +62,18 @@ class My_motor
 					else
 					{
 						position = positionMax - pos;
+					}
+				}
+				
+				int8_t GetPosition()
+				{
+					if(flagInvertPosition == 0)
+					{
+						return position;
+					}
+					else
+					{
+						return positionMax - position;
 					}
 				}
 				

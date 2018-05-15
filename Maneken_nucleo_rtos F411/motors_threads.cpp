@@ -1,5 +1,7 @@
 #include "motors_threads.h"
 
+
+
 extern Serial pc;
 
 // for motor
@@ -511,8 +513,17 @@ void motor7_body()
 
 }
 
+void SetSpeedMotor(float spDown, float spUp)
+{
+	coeffSpeedDownMotor = spDown;
+	coeffSpeedUpMotor = spUp;
+}
+
 void Trajectory(int8_t pos0, int8_t pos1, int8_t pos2, int8_t pos3, int8_t pos4, int8_t pos5, int8_t pos6)
 {
+	
+	SetSpeedMotor(1.0f, 1.0f);
+	
 	//motor0.SetPosition(pos0);
 	motor1.SetPosition(pos1);
 	motor2.SetPosition(pos2);
@@ -520,7 +531,27 @@ void Trajectory(int8_t pos0, int8_t pos1, int8_t pos2, int8_t pos3, int8_t pos4,
 	motor4.SetPosition(pos4);
 	motor5.SetPosition(pos5);
 	motor6.SetPosition(pos6);
-	motor7.SetPosition(pos0);
+	//motor7.SetPosition(pos0);
+	
+	while( (motor0.position != -1) || (motor1.position != -1) || (motor2.position != -1) || (motor3.position != -1) ||
+					(motor4.position != -1) || (motor5.position != -1) ||	(motor6.position != -1) || (motor7.position != -1) );
+	
+	wait(0.2);
+}
+
+void Trajectory(int8_t pos0, int8_t pos1, int8_t pos2, int8_t pos3, int8_t pos4, int8_t pos5, int8_t pos6, float spDown, float spUp)
+{
+	
+	SetSpeedMotor(spDown, spUp);
+	
+	//motor0.SetPosition(pos0);
+	motor1.SetPosition(pos1);
+	motor2.SetPosition(pos2);
+	motor3.SetPosition(pos3);
+	motor4.SetPosition(pos4);
+	motor5.SetPosition(pos5);
+	motor6.SetPosition(pos6);
+	//motor7.SetPosition(pos0);
 	
 	while( (motor0.position != -1) || (motor1.position != -1) || (motor2.position != -1) || (motor3.position != -1) ||
 					(motor4.position != -1) || (motor5.position != -1) ||	(motor6.position != -1) || (motor7.position != -1) );
@@ -591,5 +622,47 @@ void Trajectory4()
 	wait(1);
 	GoToNull();
 	
+}
+
+
+void TrajectoryInterval()
+{
+
+	float timeWait = 0.12;
+	
+	SetSpeedMotor(0.1, 0.1);
+	
+	
+	motor3.SetPosition(90);
+	motor5.SetPosition(90);
+	wait(timeWait);
+	motor3.SetPosition(80);
+	motor5.SetPosition(80);
+	wait(timeWait);
+	motor3.SetPosition(70);
+	motor5.SetPosition(70);
+	wait(timeWait);
+	motor3.SetPosition(60);
+	motor5.SetPosition(60);
+	wait(timeWait);
+	motor3.SetPosition(50);
+	motor5.SetPosition(50);
+	wait(timeWait);
+	motor3.SetPosition(40);
+	motor5.SetPosition(40);
+	wait(timeWait);
+	motor3.SetPosition(30);
+	motor5.SetPosition(30);
+	wait(timeWait);
+	motor3.SetPosition(20);
+	motor5.SetPosition(20);
+	wait(timeWait);
+	motor3.SetPosition(10);
+	motor5.SetPosition(10);
+	wait(timeWait);
+	motor3.SetPosition(0);
+	motor5.SetPosition(0);
+	wait(timeWait);
+
 }
 

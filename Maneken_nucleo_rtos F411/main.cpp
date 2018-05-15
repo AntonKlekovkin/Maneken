@@ -11,22 +11,19 @@ extern My_motor motor5;	//A,B,PWM
 extern My_motor motor6;	//A,B,PWM
 extern My_motor motor7;	//A,B,PWM
 
-
 void UartRX(void);
 
 int count=0;
 
 extern Serial pc;
 
-Thread t0, t1, t2, t3, t4, t5, t6, t7;
+Thread t0, t1, t2, t3, t4, t5, t6, t7, soundThread;
 
 DigitalOut my_led(PA_5);
 
 extern uint8_t flagBufferKinnect;
 
-// threads
-//uint8_t flag_thread1=0, flag_thread2=0;
-extern int8_t flag_thread;
+
 
 // for debug
 DigitalOut test1(PC_10);
@@ -85,9 +82,9 @@ void time()
 
 
 
-
 int main()
 {
+	
     pc.baud(256000);
     pc.attach(&UartRX);
     pc.printf("\n\n*** RTOS maneken start ***\n");
@@ -97,7 +94,7 @@ int main()
 		InitUartKinnect();
 	
 		wait(1);
-
+		
 		motor3.flagInvertPosition=1;
 	
 		//t0.start(motor0_body);
@@ -108,6 +105,8 @@ int main()
 		t5.start(motor5_body);
 		t6.start(motor6_body);
 		t7.start(motor7_body);
+		
+		soundThread.start(SoundThreadBody);
 	
 		//GoToNull();
 		wait(2);
@@ -121,14 +120,19 @@ int main()
 //		
 		//Trajectory4();
 	
+		//PhotoStart();
+	
     while (true) 
     {
-			if(flagBufferKinnect)
-			{
-				ParseBufferKinnect();
-				flagBufferKinnect=0;
-			}
+		if(flagBufferKinnect)
+		{
+			ParseBufferKinnect();
+			flagBufferKinnect=0;
+		}
 			
+			
+			
+		
 //			my_led = !my_led;
 //			wait(0.5);
     }
