@@ -97,14 +97,14 @@ int main()
 		
 		motor3.flagInvertPosition=1;
 	
-		//t0.start(motor0_body);
+		t0.start(motor0_body);
 		t1.start(motor1_body);
 		t2.start(motor2_body);
 		t3.start(motor3_body);
 		t4.start(motor4_body);
 		t5.start(motor5_body);
 		t6.start(motor6_body);
-		t7.start(motor7_body);
+		//t7.start(motor7_body);
 		
 		soundThread.start(SoundThreadBody);
 	
@@ -124,14 +124,16 @@ int main()
 	
     while (true) 
     {
-		if(flagBufferKinnect)
-		{
-			ParseBufferKinnect();
-			flagBufferKinnect=0;
-		}
+			if(flagBufferKinnect)
+			{
+				ParseBufferKinnect();
+				flagBufferKinnect=0;
+			}
 			
-			
-			
+//			Trajectory(100, 0, 0, 0, 0, 0, 0);
+//			wait(1);
+//			Trajectory(0, 0, 0, 0, 0, 0, 0);
+//			wait(1);
 		
 //			my_led = !my_led;
 //			wait(0.5);

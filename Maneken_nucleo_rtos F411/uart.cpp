@@ -123,6 +123,7 @@ void ParseCommand(My_motor *uartMotor, uint8_t number)
 	
 	else if(bufferUart[1] <= 100)
 	{
+		SetSpeedMotor(1, 1);
 		uartMotor->SetPosition( (float)bufferUart[1] );
 	}
 //	else if(bufferUart[1] == 5)

@@ -19,7 +19,7 @@ class My_motor
         PwmOut speed;
         My_pid Pid;
 				My_potentiometer pot;
-				My_DebugBuffer debugBuffer;
+				//My_DebugBuffer debugBuffer;
 		
         char flag_start;
         char flagRotate;
@@ -35,7 +35,7 @@ class My_motor
 				static const int8_t positionStop = -1;
         
         My_motor(PinName dir1, PinName dir2, PinName pwm, PinName adc_pin, float _min, float _max, float _delta) 
-					: direct1(dir1), direct2(dir2), speed(pwm), pot(adc_pin, _min, _max, _delta), debugBuffer(100)
+					: direct1(dir1), direct2(dir2), speed(pwm), pot(adc_pin, _min, _max, _delta)//, debugBuffer(100)
         {
 						wait(0.1);
 //					
@@ -127,7 +127,7 @@ class My_motor
 						newSpeed = Pid.CalculatePid(pot.currentPosition)/100 + GetSpeed();
 						
 						SetSpeed(newSpeed);
-						debugBuffer.WriteValue(newSpeed);
+						//debugBuffer.WriteValue(newSpeed);
 					}
 				}
         

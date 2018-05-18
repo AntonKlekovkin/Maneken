@@ -102,27 +102,33 @@ void SoundThreadBody()
 	
 	while(1)
 	{
-		if(timeThread == 10)
+		if(timeThread == 5)
 		{
-			fileSound = rand() % 10;
+			if(phoneCatchFlag && !photoDone)
+			{
+				wait(0.1);
+				if(phoneCatchFlag && !photoDone)
+				{		
+					kinnectUart.putc(25);
+					pc.printf("Phone in my hand\r\n");
+					PhotoStart();				
+					timeThread = 0;
+					photoDone = 1;
+				}
+			}
+			else
+			{
+				fileSound = rand() % 15;
+				
+				kinnectUart.putc(fileSound);
+				pc.printf("Random phrase %d\r\n", fileSound);
+				
+			}
 			
-			kinnectUart.putc(fileSound);
-			pc.printf("Random phrase %d\r\n", fileSound);
 			timeThread = 0;
 		}
 		
-		if(phoneCatchFlag && !photoDone)
-		{
-			wait(0.1);
-			if(phoneCatchFlag && !photoDone)
-			{		
-				kinnectUart.putc(25);
-				pc.printf("Phone in my hand\r\n");
-				PhotoStart();				
-				timeThread = 0;
-				photoDone = 1;
-			}
-		}
+		
 		
 		if(phoneCatcher)
 		{
@@ -147,19 +153,19 @@ void PhotoStart()
 	
 	kinnectUart.putc(20);
 	pc.printf("Prepare, I'm going to take a picture in 3 seconds\r\n");
-	wait(1);	
-	Trajectory(0, 0, 0, 100, 0, 100, 0, 2.0, 2.0);
+	wait(4);	
+	//Trajectory(0, 0, 0, 100, 0, 100, 0, 2.0, 2.0);
 	
-	kinnectUart.putc(23);
-	pc.printf("Three\r\n");
+	kinnectUart.putc(21);
+	pc.printf("One\r\n");
 	wait(1);
 	
 	kinnectUart.putc(22);
 	pc.printf("Two\r\n");
 	wait(1);
 	
-	kinnectUart.putc(21);
-	pc.printf("One\r\n");
+	kinnectUart.putc(23);
+	pc.printf("Three\r\n");
 	wait(1);
 	
 	photoPin = 0;
@@ -168,7 +174,7 @@ void PhotoStart()
 	
 	wait(1);
 	
-	TrajectoryInterval();
+	//TrajectoryInterval();
 	//Trajectory(0, 0, 0, 0, 0, 0, 0, 0.1, 0.1);
 	
 	

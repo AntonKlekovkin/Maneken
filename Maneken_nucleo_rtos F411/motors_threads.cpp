@@ -5,14 +5,14 @@
 extern Serial pc;
 
 // for motor
-My_motor motor0(PB_13, PB_14, PA_10, PC_0, 0.49, 0.87, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
+My_motor motor0(PB_13, PB_14, PA_10, PC_0, 0.03, 0.33, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor1(PB_15, PB_1, PB_3, PC_1, 0.71, 0.91, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor2(PB_2, PB_12, PB_5, PB_0, 0.55, 0.88, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor3(PA_11, PA_12, PB_4, PA_4, 0.00, 0.17, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor4(PC_5, PC_6, PB_10, PA_1, 0.54, 0.74, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor5(PB_6, PA_7, PA_8, PA_0, 0.35, 0.67, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor6(PA_6, PA_5, PA_9, PC_3, 0.70, 1.00, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
-My_motor motor7(PB_9, PB_8, PC_7, PC_2, 0.24, 0.39, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
+My_motor motor7(PB_9, PB_8, PC_7, PC_2, 0.03, 0.33, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 
 
 
@@ -36,8 +36,8 @@ static float PidUpMotor5[3] = {3.0, 35.0, 0};
 
 static float PidDownMotor6[3] = {15.0, 10.0, 0};
 
-static float PidDownMotor7[3] = {2.5, 35.0, 0};
-static float PidUpMotor7[3] = {5.0, 35.0, 0};
+static float PidDownMotor7[3] = {1.3, 35.0, 0};
+static float PidUpMotor7[3] = {3.0, 35.0, 0};
 
 static float coeffSpeedDownMotor = 2.5;
 static float coeffSpeedUpMotor = 2.5;
@@ -458,19 +458,19 @@ void motor7_body()
 {
 	while(1)
 	{
-		if(motor7.position == -1)
+		if(motor7.position == motor7.positionStop)
 		{
 			motor7.Stop();
 		}
 		else
 		{
-			if(motor7.position < 0)
+			if(motor7.position < motor7.positionMin)
 			{
-				motor7.position = 0;
+				motor7.position = motor7.positionMin;
 			}
-			if(motor7.position > 100)
+			if(motor7.position > motor7.positionMax)
 			{
-				motor7.position = 100;
+				motor7.position = motor7.positionMax;
 			}
 			// opredelit napravlenie i koefficienti pid
 			float deltaPos = motor7.pot.currentPosition - motor7.pot.CalculatePot(motor7.position);
@@ -504,7 +504,7 @@ void motor7_body()
 			{
 				motor7.Stop();
 			
-				motor7.position = -1;
+				motor7.position = motor7.positionStop;
 			}
 			
 			//motor0.debugBuffer.PrintBuffer(&pc);
@@ -524,7 +524,7 @@ void Trajectory(int8_t pos0, int8_t pos1, int8_t pos2, int8_t pos3, int8_t pos4,
 	
 	SetSpeedMotor(1.0f, 1.0f);
 	
-	//motor0.SetPosition(pos0);
+	motor0.SetPosition(pos0);
 	motor1.SetPosition(pos1);
 	motor2.SetPosition(pos2);
 	motor3.SetPosition(pos3);
@@ -544,7 +544,7 @@ void Trajectory(int8_t pos0, int8_t pos1, int8_t pos2, int8_t pos3, int8_t pos4,
 	
 	SetSpeedMotor(spDown, spUp);
 	
-	//motor0.SetPosition(pos0);
+	motor0.SetPosition(pos0);
 	motor1.SetPosition(pos1);
 	motor2.SetPosition(pos2);
 	motor3.SetPosition(pos3);
