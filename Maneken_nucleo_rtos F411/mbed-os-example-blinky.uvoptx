@@ -150,18 +150,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>114</LineNumber>
+          <LineNumber>36</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134243858</Address>
+          <Address>134246920</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\РђРЅС‚РѕРЅ\РџСЂРѕРµРєС‚С‹\РњР°РЅРµРєРµРЅ\ManekenGit\Maneken_nucleo_rtos F411\uartKinnect.cpp</Filename>
+          <Filename>C:\РђРЅС‚РѕРЅ\РџСЂРѕРµРєС‚С‹\РњР°РЅРµРєРµРЅ\ManekenGit\Maneken_nucleo_rtos F411\uart.cpp</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\mbed_os_example_blinky\uartKinnect.cpp\114</Expression>
+          <Expression>\\mbed_os_example_blinky\uart.cpp\36</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -184,6 +184,36 @@
           <count>3</count>
           <WinNumber>1</WinNumber>
           <ItemText>motor0</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>motor1</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>motor2</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>motor3</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>motor4</ItemText>
+        </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>motor6</ItemText>
+        </Ww>
+        <Ww>
+          <count>9</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>motor7</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -212,7 +242,7 @@
         <aLwin>1</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
-        <aSer2>0</aSer2>
+        <aSer2>1</aSer2>
         <aPa>0</aPa>
         <viewmode>1</viewmode>
         <vrSel>0</vrSel>
@@ -249,6 +279,10 @@
         <Entry>
           <Name>System Viewer\GPIOB</Name>
           <WinId>35905</WinId>
+        </Entry>
+        <Entry>
+          <Name>System Viewer\USART2</Name>
+          <WinId>35904</WinId>
         </Entry>
       </SystemViewers>
       <DebugDescription>

@@ -102,7 +102,7 @@ void SoundThreadBody()
 	
 	while(1)
 	{
-		if(timeThread == 5)
+		if(timeThread == 10)
 		{
 			if(phoneCatchFlag && !photoDone)
 			{
@@ -111,6 +111,7 @@ void SoundThreadBody()
 				{		
 					kinnectUart.putc(25);
 					pc.printf("Phone in my hand\r\n");
+					
 					PhotoStart();				
 					timeThread = 0;
 					photoDone = 1;
@@ -154,7 +155,7 @@ void PhotoStart()
 	kinnectUart.putc(20);
 	pc.printf("Prepare, I'm going to take a picture in 3 seconds\r\n");
 	wait(4);	
-	//Trajectory(0, 0, 0, 100, 0, 100, 0, 2.0, 2.0);
+	Trajectory(-1, -1, -1, 100, -1, 100, -1, 2.0, 2.0);
 	
 	kinnectUart.putc(21);
 	pc.printf("One\r\n");
@@ -168,13 +169,11 @@ void PhotoStart()
 	pc.printf("Three\r\n");
 	wait(1);
 	
-	photoPin = 0;
-	wait(0.1);
-	photoPin = 1;
+	TakePicture();
 	
 	wait(1);
 	
-	//TrajectoryInterval();
+	TrajectoryInterval();
 	//Trajectory(0, 0, 0, 0, 0, 0, 0, 0.1, 0.1);
 	
 	
@@ -184,5 +183,10 @@ void PhotoStart()
 	
 }
 
-
+void TakePicture()
+{
+	photoPin = 0;
+	wait(0.1);
+	photoPin = 1;
+}
 

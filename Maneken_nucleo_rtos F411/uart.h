@@ -15,6 +15,7 @@ void KinnectUartInterrupt(void);
 void InitUartKinnect(void);
 void SoundThreadBody(void);
 void PhotoStart(void);
+void TakePicture(void);
 
 #endif
 

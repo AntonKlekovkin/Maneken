@@ -25,7 +25,10 @@ extern My_motor motor7;	//A,B,PWM
 
 void UartRX()
 {
-    bufferUart[bufferUartCount]=pc.getc();
+		//bufferUart[bufferUartCount]=pc.getc();
+	
+		bufferUart[bufferUartCount]=USART2->DR & 0x1FF;
+	
 		bufferUartCount++;
 		
 		if(bufferUartCount == 2)
@@ -92,6 +95,14 @@ void ParseBuffer()
 		ParseCommand(&motor7, number);
 	}
 	
+	else if(bufferUart[0] == 10)
+	{
+		if(bufferUart[1] == 10)
+		{
+			TakePicture();
+		}
+	}
+	
 	
 	
     
@@ -126,8 +137,5 @@ void ParseCommand(My_motor *uartMotor, uint8_t number)
 		SetSpeedMotor(1, 1);
 		uartMotor->SetPosition( (float)bufferUart[1] );
 	}
-//	else if(bufferUart[1] == 5)
-//	{
-//		flag_thread=number+10;
-//	}
+
 }

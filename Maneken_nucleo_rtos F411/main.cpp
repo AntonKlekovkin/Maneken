@@ -19,7 +19,7 @@ extern Serial pc;
 
 Thread t0, t1, t2, t3, t4, t5, t6, t7, soundThread;
 
-DigitalOut my_led(PA_5);
+//DigitalOut my_led(PA_5);
 
 extern uint8_t flagBufferKinnect;
 
@@ -72,11 +72,11 @@ void time()
 			test1=0;
     }
 		
-		if(i2==200)
-		{
-			my_led = !my_led;
-			i2=0;
-		}
+//		if(i2==200)
+//		{
+//			my_led = !my_led;
+//			i2=0;
+//		}
 
 }
 
@@ -85,7 +85,7 @@ void time()
 int main()
 {
 	
-    pc.baud(256000);
+    pc.baud(115200);
     pc.attach(&UartRX);
     pc.printf("\n\n*** RTOS maneken start ***\n");
 		
