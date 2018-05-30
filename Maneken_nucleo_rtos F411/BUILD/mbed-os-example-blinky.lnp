@@ -380,6 +380,7 @@
 ".\build\xtea.o"
 ".\build\main.o"
 ".\build\motors_threads.o"
+".\build\distancesensor.o"
 ".\build\uart.o"
 ".\build\uartkinnect.o"
 --scatter "mbed-os/targets/TARGET_STM/TARGET_STM32F4/TARGET_STM32F411xE/device/TOOLCHAIN_ARM_STD/stm32f411re.sct"

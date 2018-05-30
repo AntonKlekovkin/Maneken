@@ -1,6 +1,7 @@
 #include "mbed.h"
 #include "motors_threads.h"
 #include "uart.h"
+#include "distanceSensor.h"
 
 extern My_motor motor0;	//A,B,PWM
 extern My_motor motor1;	//A,B,PWM
@@ -19,14 +20,11 @@ extern Serial pc;
 
 Thread t0, t1, t2, t3, t4, t5, t6, t7, soundThread;
 
-//DigitalOut my_led(PA_5);
-
 extern uint8_t flagBufferKinnect;
 
 
-
 // for debug
-DigitalOut test1(PC_10);
+//DigitalOut test1(PC_8);
 //My_DebugBuffer debugBuffer(300, 300);
 uint8_t flag_buf=0;
 
@@ -41,7 +39,6 @@ void time()
     
     if(i1==deltaT)
     {
-			test1=1;
 			
 			motor0.pot.Refresh();
       motor1.pot.Refresh();
@@ -52,13 +49,10 @@ void time()
 			motor6.pot.Refresh();
 			motor7.pot.Refresh();
 			
+			RefreshDistance();
+			
 			i1=0;
 			
-//			if(motor1.flagRotate==1)
-//			{
-//				//debugBuffer.WriteValue(pot1.omega);
-//				//debugBuffer.WriteValue2(pot1.currentPosition);
-//			}
 			
 			motor0.PidStep();
 			motor1.PidStep();
@@ -69,14 +63,7 @@ void time()
 			motor6.PidStep();
 			motor7.PidStep();
 			
-			test1=0;
     }
-		
-//		if(i2==200)
-//		{
-//			my_led = !my_led;
-//			i2=0;
-//		}
 
 }
 
@@ -84,7 +71,7 @@ void time()
 
 int main()
 {
-	
+
     pc.baud(115200);
     pc.attach(&UartRX);
     pc.printf("\n\n*** RTOS maneken start ***\n");
@@ -128,14 +115,7 @@ int main()
 			{
 				ParseBufferKinnect();
 				flagBufferKinnect=0;
-			}
+			}			
 			
-//			Trajectory(100, 0, 0, 0, 0, 0, 0);
-//			wait(1);
-//			Trajectory(0, 0, 0, 0, 0, 0, 0);
-//			wait(1);
-		
-//			my_led = !my_led;
-//			wait(0.5);
     }
 }

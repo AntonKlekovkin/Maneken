@@ -4750,6 +4750,16 @@
               <FileType>5</FileType>
               <FilePath>.\my_debugBuffer.h</FilePath>
             </File>
+            <File>
+              <FileName>distanceSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\distanceSensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>distanceSensor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\distanceSensor.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

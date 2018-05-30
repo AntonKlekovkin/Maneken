@@ -1,7 +1,5 @@
 #include "motors_threads.h"
 
-
-
 extern Serial pc;
 
 // for motor
@@ -12,12 +10,12 @@ My_motor motor3(PA_11, PA_12, PB_4, PA_4, 0.00, 0.17, 0.03);	//A,B,PWM, PinPot, 
 My_motor motor4(PC_5, PC_6, PB_10, PA_1, 0.54, 0.74, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor5(PB_6, PA_7, PA_8, PA_0, 0.35, 0.67, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor6(PA_6, PA_5, PA_9, PC_3, 0.70, 1.00, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
-My_motor motor7(PB_9, PB_8, PC_7, PC_2, 0.03, 0.33, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
+My_motor motor7(PB_9, PB_8, PC_7, PC_8, 0.03, 0.33, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 
 
 
-static float PidDownMotor0[3] = {1.3, 35.0, 0};
-static float PidUpMotor0[3] = {3.0, 35.0, 0};
+static float PidDownMotor0[3] = {0.5, 35.0, 0};
+static float PidUpMotor0[3] = {5.0, 35.0, 0};
 
 static float PidDownMotor1[3] = {0.75, 25.0, 0};
 static float PidUpMotor1[3] = {10.0, 50.0, 0};
