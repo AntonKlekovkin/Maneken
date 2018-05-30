@@ -12,7 +12,7 @@ extern My_motor motor3;	//A,B,PWM
 extern My_motor motor4;	//A,B,PWM
 extern My_motor motor5;	//A,B,PWM
 extern My_motor motor6;	//A,B,PWM
-extern My_motor motor7;	//A,B,PWM
+//extern My_motor motor7;	//A,B,PWM
 
 //extern My_potentiometer pot0; //Pin, pot_min, pot_max, delta
 //extern My_potentiometer pot1;
@@ -88,12 +88,12 @@ void ParseBuffer()
 		
 		ParseCommand(&motor6, number);
 	}
-	else if(bufferUart[0] == 7)
-	{
-		number = 7;
-		
-		ParseCommand(&motor7, number);
-	}
+//	else if(bufferUart[0] == 7)
+//	{
+//		number = 7;
+//		
+//		ParseCommand(&motor7, number);
+//	}
 	
 	else if(bufferUart[0] == 10)
 	{

@@ -3,7 +3,7 @@
 #define POWER_3_3 
 //#define POWER_5		
 
-static AnalogIn distanceSensor(PC_4);
+static AnalogIn distanceSensor(PC_2);
 
 //static DigitalOut trig(PC_2);
 //static DigitalIn echo(PC_3);
@@ -24,39 +24,4 @@ void RefreshDistance()
 	#endif
 }
 
-void ThreadDistanceSensor()
-{
-//	uint16_t timeDistanceSensor = 0;	
-//	
-//	while(1)
-//	{
-//		
-//		trig = 0;
-//		wait_us(2);
-//		
-//		trig = 1;
-//		wait_us(10);
-//		trig = 0;
-//		
-//		while(echo != 1);
-//		
-//		while(echo != 0)
-//		{
-//			wait_us(1);
-//			timeDistanceSensor++;
-//		}
-//		
-//		GetDistance(timeDistanceSensor);
-//		timeDistanceSensor = 0;
-//		
-//		wait_ms(100);
-//	}
-	
-}
 
-
-void GetDistance(uint16_t t)
-{
-	//currentDistance = (float)t/58.0f;
-	
-}

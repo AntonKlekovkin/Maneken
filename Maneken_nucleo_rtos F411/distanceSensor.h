@@ -4,8 +4,8 @@
 #include "mbed.h"
 
 void RefreshDistance(void);
-void ThreadDistanceSensor(void);
-void GetDistance(uint16_t t);
+//void ThreadDistanceSensor(void);
+//void GetDistance(uint16_t t);
 
 #endif
 

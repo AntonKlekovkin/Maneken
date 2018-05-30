@@ -24,6 +24,8 @@ void Trajectory2(void);
 void Trajectory3(void);
 void Trajectory4(void);
 void TrajectoryInterval(void);
+void TrajectoryFashion(void);
+void TrajectoryToSellers(void);
 
 #endif
 

@@ -1,7 +1,10 @@
 #include "uart.h"
 
+#define MOVING_ACTIVATE	0
+
 Serial kinnectUart(PA_15, PB_7);	//TX, RX
 extern Serial pc;
+extern float currentDistance;
 
 DigitalOut photoPin(PD_2, 1);
 
@@ -95,67 +98,118 @@ void ParseBufferKinnect()
 
 void SoundThreadBody()
 {
-	static uint8_t timeThread = 0;
-	uint8_t fileSound = 0;
 	
 	srand( time(0) );
 	
 	while(1)
 	{
-		if(timeThread == 10)
+		if(CheckCurrentDistance(100, 1500))
 		{
-			if(phoneCatchFlag && !photoDone)
+			if (rand() % 2)
 			{
-				wait(0.1);
-				if(phoneCatchFlag && !photoDone)
-				{		
-					kinnectUart.putc(25);
-					pc.printf("Phone in my hand\r\n");
-					
-					PhotoStart();				
-					timeThread = 0;
-					photoDone = 1;
-				}
+				kinnectUart.putc(14);	//дзеч буреч
+				pc.printf("Dzech burech\r\n");
+				wait(3);
 			}
 			else
 			{
-				fileSound = rand() % 15;
-				
-				kinnectUart.putc(fileSound);
-				pc.printf("Random phrase %d\r\n", fileSound);
-				
+				kinnectUart.putc(28);	//привет отлично выглядишь
+				pc.printf("Hello, you look great\r\n");
+				wait(3);
 			}
 			
-			timeThread = 0;
+			kinnectUart.putc(17);	// давай сфотографируемся
+			pc.printf("Let's take a picture\r\n");
+			wait(2);
+			kinnectUart.putc(16);	// встань на линию
+			pc.printf("Go to line, I'm going to take a picture\r\n");
+			wait(5);
+			
+			for(int i = 0; i < 2; i++)
+			{
+				if(CheckCurrentDistance(160, 500) )
+				{
+					kinnectUart.putc(26);	// отойди чуть дальше
+					pc.printf("Go a little\r\n");
+					wait(5);
+				}
+			}
+			
+			for(int i = 0; i < 3; i++)
+			{
+				if( CheckCurrentDistance(180, 250, 500) )
+				{
+					if (rand() % 2)
+					{
+						kinnectUart.putc(34);
+						pc.printf("Smile\r\n");
+						wait(1);
+					}
+					else
+					{
+						kinnectUart.putc(32);
+						pc.printf("Cheese\r\n");
+						wait(1);
+					}
+					
+					PhotoStart();
+					
+					kinnectUart.putc(35);
+					pc.printf("Photo in group in VK\r\n");
+					wait(5);
+					break;
+				}
+				wait(1);
+			}
+			
+			if (rand() % 2)
+			{
+				kinnectUart.putc(31);
+				pc.printf("Shapka\r\n");
+				wait(4);
+			}
+			else
+			{
+				kinnectUart.putc(15);
+				pc.printf("And now look at my clothes\r\n");
+				wait(3);
+			}
+			
+			kinnectUart.putc(27);
+			pc.printf("Last fashion peep\r\n");
+			wait(2);
+			
+			#if MOVING_ACTIVATE
+			Trajectory4();
+			#endif
+			
+			kinnectUart.putc(30);
+			pc.printf("Sellers give you right size\r\n");
+			wait(2);
+			
+			#if MOVING_ACTIVATE
+			TrajectoryToSellers();
+			#endif
+			
+			wait(5);
 		}
 		
-		
-		
-		if(phoneCatcher)
-		{
-			phoneCatchFlag = 0;
-			photoDone = 0;
-		}
-		else
-		{
-			phoneCatchFlag = 1;
-		}
-		
-		
-		wait(1);
-		timeThread++;
 	}	
 }
 
 
+
 void PhotoStart()
 {
-	wait(5);
+	//wait(5);
 	
 	kinnectUart.putc(20);
 	pc.printf("Prepare, I'm going to take a picture in 3 seconds\r\n");
 	wait(4);	
+	
+	#if MOVING_ACTIVATE
 	Trajectory(-1, -1, -1, 100, -1, 100, -1, 2.0, 2.0);
+	#endif
 	
 	kinnectUart.putc(21);
 	pc.printf("One\r\n");
@@ -169,17 +223,22 @@ void PhotoStart()
 	pc.printf("Three\r\n");
 	wait(1);
 	
+	
 	TakePicture();
+	wait(0.5);
+	TakePicture();
+	
 	
 	wait(1);
 	
+	#if MOVING_ACTIVATE
 	TrajectoryInterval();
-	//Trajectory(0, 0, 0, 0, 0, 0, 0, 0.1, 0.1);
+	#endif
 	
-	
+		
 	kinnectUart.putc(24);
 	pc.printf("Photo is ready\r\n");
-	
+	wait(2);
 	
 }
 
@@ -188,5 +247,35 @@ void TakePicture()
 	photoPin = 0;
 	wait(0.1);
 	photoPin = 1;
+}
+
+bool CheckCurrentDistance(uint16_t dis, uint16_t t)
+{
+	if(currentDistance < dis)
+	{
+		wait_ms(t);
+		
+		if(currentDistance < dis)
+		{
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+bool CheckCurrentDistance(uint16_t dis1, uint16_t dis2, uint16_t t)
+{
+	if(currentDistance < dis2 && currentDistance > dis1)
+	{
+		wait_ms(t);
+		
+		if(currentDistance < dis2 && currentDistance > dis1)
+		{
+			return true;
+		}
+	}
+	
+	return false;
 }
 

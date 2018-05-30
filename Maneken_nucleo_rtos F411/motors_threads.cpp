@@ -10,7 +10,7 @@ My_motor motor3(PA_11, PA_12, PB_4, PA_4, 0.00, 0.17, 0.03);	//A,B,PWM, PinPot, 
 My_motor motor4(PC_5, PC_6, PB_10, PA_1, 0.54, 0.74, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor5(PB_6, PA_7, PA_8, PA_0, 0.35, 0.67, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 My_motor motor6(PA_6, PA_5, PA_9, PC_3, 0.70, 1.00, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
-My_motor motor7(PB_9, PB_8, PC_7, PC_8, 0.03, 0.33, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
+//My_motor motor7(PB_9, PB_8, PC_7, PC_8, 0.03, 0.33, 0.03);	//A,B,PWM, PinPot, pot_min, pot_max, delta
 
 
 
@@ -454,60 +454,60 @@ void motor6_body()
 
 void motor7_body()
 {
-	while(1)
-	{
-		if(motor7.position == motor7.positionStop)
-		{
-			motor7.Stop();
-		}
-		else
-		{
-			if(motor7.position < motor7.positionMin)
-			{
-				motor7.position = motor7.positionMin;
-			}
-			if(motor7.position > motor7.positionMax)
-			{
-				motor7.position = motor7.positionMax;
-			}
-			// opredelit napravlenie i koefficienti pid
-			float deltaPos = motor7.pot.currentPosition - motor7.pot.CalculatePot(motor7.position);
-			float deltaPosSign;
-			
-			if(deltaPos>=0)
-			{
-				deltaPosSign = 1;
-			}
-			else
-			{
-				deltaPosSign = -1;
-			}
-			
-			if(deltaPos > 0)
-			{
-				//down
-				motor7.SetDirection(2);
-				motor7.Pid.SetAllCoeff(coeffSpeedDownMotor*PidDownMotor7[0], PidDownMotor7[1], PidDownMotor7[2]);
-			}
-			else
-			{
-				//up
-				motor7.SetDirection(1);
-				motor7.Pid.SetAllCoeff(coeffSpeedUpMotor*PidUpMotor7[0], PidUpMotor7[1], PidUpMotor7[2]);
-			}			
-			
-			motor7.Pid.SetSettedValue(motor7.pot.CalculatePot(motor7.position));
-			
-			if( motor7.pot.IsValue(motor7.position, deltaPosSign) )
-			{
-				motor7.Stop();
-			
-				motor7.position = motor7.positionStop;
-			}
-			
-			//motor0.debugBuffer.PrintBuffer(&pc);
-		}
-	}
+//	while(1)
+//	{
+//		if(motor7.position == motor7.positionStop)
+//		{
+//			motor7.Stop();
+//		}
+//		else
+//		{
+//			if(motor7.position < motor7.positionMin)
+//			{
+//				motor7.position = motor7.positionMin;
+//			}
+//			if(motor7.position > motor7.positionMax)
+//			{
+//				motor7.position = motor7.positionMax;
+//			}
+//			// opredelit napravlenie i koefficienti pid
+//			float deltaPos = motor7.pot.currentPosition - motor7.pot.CalculatePot(motor7.position);
+//			float deltaPosSign;
+//			
+//			if(deltaPos>=0)
+//			{
+//				deltaPosSign = 1;
+//			}
+//			else
+//			{
+//				deltaPosSign = -1;
+//			}
+//			
+//			if(deltaPos > 0)
+//			{
+//				//down
+//				motor7.SetDirection(2);
+//				motor7.Pid.SetAllCoeff(coeffSpeedDownMotor*PidDownMotor7[0], PidDownMotor7[1], PidDownMotor7[2]);
+//			}
+//			else
+//			{
+//				//up
+//				motor7.SetDirection(1);
+//				motor7.Pid.SetAllCoeff(coeffSpeedUpMotor*PidUpMotor7[0], PidUpMotor7[1], PidUpMotor7[2]);
+//			}			
+//			
+//			motor7.Pid.SetSettedValue(motor7.pot.CalculatePot(motor7.position));
+//			
+//			if( motor7.pot.IsValue(motor7.position, deltaPosSign) )
+//			{
+//				motor7.Stop();
+//			
+//				motor7.position = motor7.positionStop;
+//			}
+//			
+//			//motor0.debugBuffer.PrintBuffer(&pc);
+//		}
+//	}
 
 }
 
@@ -532,7 +532,7 @@ void Trajectory(int8_t pos0, int8_t pos1, int8_t pos2, int8_t pos3, int8_t pos4,
 	//motor7.SetPosition(pos0);
 	
 	while( (motor0.position != -1) || (motor1.position != -1) || (motor2.position != -1) || (motor3.position != -1) ||
-					(motor4.position != -1) || (motor5.position != -1) ||	(motor6.position != -1) || (motor7.position != -1) );
+					(motor4.position != -1) || (motor5.position != -1) ||	(motor6.position != -1) );// || (motor7.position != -1) );
 	
 	wait(0.2);
 }
@@ -552,7 +552,7 @@ void Trajectory(int8_t pos0, int8_t pos1, int8_t pos2, int8_t pos3, int8_t pos4,
 	//motor7.SetPosition(pos0);
 	
 	while( (motor0.position != -1) || (motor1.position != -1) || (motor2.position != -1) || (motor3.position != -1) ||
-					(motor4.position != -1) || (motor5.position != -1) ||	(motor6.position != -1) || (motor7.position != -1) );
+					(motor4.position != -1) || (motor5.position != -1) ||	(motor6.position != -1) ); // || (motor7.position != -1) );
 	
 	wait(0.2);
 }
@@ -566,7 +566,7 @@ void GoToNull()
 	motor4.Stop();
 	motor5.Stop();
 	motor6.Stop();
-	motor7.Stop();
+	//motor7.Stop();
 
 	motor3.flagInvertPosition=1;
 	
@@ -622,6 +622,23 @@ void Trajectory4()
 	
 }
 
+void TrajectoryFashion()
+{
+	Trajectory(100, 0, 100, 100, 0, 100, 0);
+	Trajectory(100, 0, 0, 0, 0, 100, 100);
+	Trajectory(0, 0, 0, 0, 0, 0, 60);
+	
+	wait(1);
+	GoToNull();
+}
+
+void TrajectoryToSellers()
+{
+	Trajectory(100, 0, 0, 100, 100, 0, 100);
+		
+	wait(4);
+	GoToNull();
+}
 
 void TrajectoryInterval()
 {

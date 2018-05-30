@@ -152,7 +152,7 @@
           <Type>0</Type>
           <LineNumber>36</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134246988</Address>
+          <Address>134244116</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -162,22 +162,6 @@
           <Filename>C:\РђРЅС‚РѕРЅ\РџСЂРѕРµРєС‚С‹\РњР°РЅРµРєРµРЅ\ManekenGit\Maneken_nucleo_rtos F411\uart.cpp</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\mbed_os_example_blinky\uart.cpp\36</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>23</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134245608</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\РђРЅС‚РѕРЅ\РџСЂРѕРµРєС‚С‹\РњР°РЅРµРєРµРЅ\ManekenGit\Maneken_nucleo_rtos F411\distanceSensor.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\mbed_os_example_blinky\distanceSensor.cpp\23</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>

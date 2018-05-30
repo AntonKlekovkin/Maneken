@@ -10,7 +10,7 @@ extern My_motor motor3;	//A,B,PWM
 extern My_motor motor4;	//A,B,PWM
 extern My_motor motor5;	//A,B,PWM
 extern My_motor motor6;	//A,B,PWM
-extern My_motor motor7;	//A,B,PWM
+//extern My_motor motor7;	//A,B,PWM
 
 void UartRX(void);
 
@@ -36,7 +36,9 @@ void time()
     const int deltaT = 5; // ms        
     i1++;
     i2++;
-    
+  
+  RefreshDistance();
+	
     if(i1==deltaT)
     {
 			
@@ -47,9 +49,9 @@ void time()
 			motor4.pot.Refresh();
 			motor5.pot.Refresh();
 			motor6.pot.Refresh();
-			motor7.pot.Refresh();
+			//motor7.pot.Refresh();
 			
-			RefreshDistance();
+			
 			
 			i1=0;
 			
@@ -61,7 +63,7 @@ void time()
 			motor4.PidStep();			
 			motor5.PidStep();
 			motor6.PidStep();
-			motor7.PidStep();
+			//motor7.PidStep();
 			
     }
 

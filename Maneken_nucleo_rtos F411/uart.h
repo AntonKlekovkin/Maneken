@@ -16,6 +16,8 @@ void InitUartKinnect(void);
 void SoundThreadBody(void);
 void PhotoStart(void);
 void TakePicture(void);
+bool CheckCurrentDistance(uint16_t dis, uint16_t t);
+bool CheckCurrentDistance(uint16_t dis1, uint16_t dis2, uint16_t t);
 
 #endif
 
